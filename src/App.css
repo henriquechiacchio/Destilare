@@ -1,0 +1,279 @@
+.app-shell {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.site-header,
+.storefront,
+.how-it-was-made,
+.site-footer {
+  width: min(100% - 64px, 1180px);
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand,
+.site-header nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.brand__seal {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--copper);
+  border-radius: 50%;
+  color: var(--copper);
+  font-family: var(--heading);
+  font-size: 0.9rem;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 28px;
+}
+
+.site-header nav a {
+  position: relative;
+  padding: 8px 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.site-header nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--copper);
+  content: "";
+  transform: scaleX(0);
+  transition: transform 180ms ease;
+}
+
+.site-header nav a:hover::after,
+.site-header nav a.is-active::after {
+  transform: scaleX(1);
+}
+
+.storefront {
+  flex: 1;
+}
+
+.storefront__hero {
+  display: grid;
+  min-height: 520px;
+  align-content: center;
+  max-width: 760px;
+  padding: 72px 0 96px;
+}
+
+.eyebrow {
+  margin: 0 0 20px;
+  color: var(--copper);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--heading);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+h1 {
+  max-width: 700px;
+  font-size: clamp(4.5rem, 12vw, 9.5rem);
+  line-height: 0.86;
+}
+
+.storefront__intro,
+.how-it-was-made__intro {
+  max-width: 530px;
+  margin: 34px 0 30px;
+  color: var(--muted);
+  font-size: 1.18rem;
+  line-height: 1.6;
+}
+
+.text-link {
+  display: inline-flex;
+  width: fit-content;
+  gap: 12px;
+  align-items: center;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.text-link span {
+  color: var(--copper);
+  font-size: 1.2rem;
+  transition: transform 180ms ease;
+}
+
+.text-link:hover span {
+  transform: translateY(4px);
+}
+
+.collection-preview {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  padding: 50px 0 70px;
+  border-top: 1px solid var(--line);
+}
+
+h2 {
+  max-width: 580px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.03;
+}
+
+.collection-preview__note {
+  align-self: end;
+  max-width: 300px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.how-it-was-made {
+  flex: 1;
+  padding: 100px 0;
+}
+
+.how-it-was-made__intro {
+  margin-top: 30px;
+}
+
+.video-placeholder {
+  display: grid;
+  min-height: 270px;
+  margin-top: 70px;
+  place-items: center;
+  align-content: center;
+  gap: 16px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--muted);
+}
+
+.video-placeholder__mark {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 1px solid var(--copper);
+  border-radius: 50%;
+  color: var(--copper);
+  font-size: 0.85rem;
+}
+
+.video-placeholder p {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 0 28px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  .site-header,
+  .storefront,
+  .how-it-was-made,
+  .site-footer {
+    width: min(100% - 40px, 1180px);
+  }
+
+  .site-header {
+    padding: 20px 0;
+  }
+
+  .site-header nav {
+    gap: 16px;
+  }
+
+  .site-header nav a {
+    font-size: 0.64rem;
+  }
+
+  .storefront__hero {
+    min-height: 480px;
+    padding: 52px 0 70px;
+  }
+
+  h1 {
+    font-size: clamp(4rem, 21vw, 6rem);
+  }
+
+  .storefront__intro,
+  .how-it-was-made__intro {
+    font-size: 1rem;
+  }
+
+  .collection-preview {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .collection-preview__note {
+    align-self: start;
+  }
+
+  .how-it-was-made {
+    padding: 70px 0;
+  }
+
+  .video-placeholder {
+    min-height: 220px;
+    margin-top: 48px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

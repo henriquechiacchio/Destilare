@@ -1,0 +1,68 @@
+[
+  {
+    "id": "destilare-reserva-carvalho",
+    "name": "Reserva Carvalho",
+    "category": "Single Malt",
+    "description": "Um single malt macio, marcado por frutas secas e carvalho tostado.",
+    "price": 289.9,
+    "image": "https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=900&q=85",
+    "ageStatement": "12 anos",
+    "origin": "Highlands, Escócia",
+    "tastingNotes": ["Baunilha", "Carvalho tostado", "Frutas secas"]
+  },
+  {
+    "id": "destilare-bruma-defumada",
+    "name": "Bruma Defumada",
+    "category": "Peated",
+    "description": "Camadas de fumaça e salinidade equilibradas por um final de mel.",
+    "price": 349.9,
+    "image": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=900&q=85",
+    "ageStatement": "10 anos",
+    "origin": "Islay, Escócia",
+    "tastingNotes": ["Fumaça", "Sal marinho", "Mel"]
+  },
+  {
+    "id": "destilare-cobre-do-sol",
+    "name": "Cobre do Sol",
+    "category": "Bourbon",
+    "description": "Bourbon de milho doce com especiarias quentes e acabamento sedoso.",
+    "price": 219.9,
+    "image": "https://images.unsplash.com/photo-1582819509237-cf5b6b4e70f8?auto=format&fit=crop&w=900&q=85",
+    "ageStatement": "8 anos",
+    "origin": "Kentucky, Estados Unidos",
+    "tastingNotes": ["Caramelo", "Canela", "Noz-pecã"]
+  },
+  {
+    "id": "destilare-linha-do-tempo",
+    "name": "Linha do Tempo",
+    "category": "Blended",
+    "description": "Um blend elegante e acessível, feito para acompanhar longas conversas.",
+    "price": 169.9,
+    "image": "https://images.unsplash.com/photo-1516535791821-6e7c4a2f7e2b?auto=format&fit=crop&w=900&q=85",
+    "ageStatement": "8 anos",
+    "origin": "Speyside, Escócia",
+    "tastingNotes": ["Pera madura", "Caramelo", "Amêndoas"]
+  },
+  {
+    "id": "destilare-barrica-de-cerejeira",
+    "name": "Barrica de Cerejeira",
+    "category": "Finish especial",
+    "description": "Maturação final em madeira de cerejeira para um perfil frutado e profundo.",
+    "price": 399.9,
+    "image": "https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=900&q=85&sat=-20",
+    "ageStatement": "14 anos",
+    "origin": "Kyoto, Japão",
+    "tastingNotes": ["Cereja", "Cacau", "Gengibre"]
+  },
+  {
+    "id": "destilare-primeiro-brinde",
+    "name": "Primeiro Brinde",
+    "category": "Blended",
+    "description": "Leve, floral e luminoso: a porta de entrada para a nossa carta.",
+    "price": 129.9,
+    "image": "https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=900&q=85&sat=20",
+    "ageStatement": "6 anos",
+    "origin": "Lowlands, Escócia",
+    "tastingNotes": ["Flores brancas", "Maçã", "Biscoito"]
+  }
+]

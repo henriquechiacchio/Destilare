@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --ink: #201d19;
+  --muted: #746d63;
+  --paper: #eee8de;
+  --background: #f8f5ef;
+  --line: #d8d0c3;
+  --copper: #a85d38;
+  --heading: 'Playfair Display', Georgia, serif;
+  --body: 'DM Mono', Consolas, monospace;
+  font-family: var(--body);
+  color: var(--ink);
+  background: var(--background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100svh;
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 4px;
+}
