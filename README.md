@@ -36,12 +36,13 @@ Destilare/
 │   └── plan-lojaDestilareNoAr.prompt.md
 ├── src/
 │   ├── components/
-│   │   └── BomDia.tsx      # Componente inicial do scaffold, sem uso atual
+│   │   ├── Header.tsx       # Cabeçalho e navegação principal
+│   │   ├── HowItWasMade.tsx # Página explicativa
+│   │   └── Storefront.tsx   # Vitrine inicial
 │   ├── types/
-│   │   ├── product.ts      # Tipo Product do catálogo
-│   │   └── teste.ts        # Tipo inicial do scaffold, sem uso atual
+│   │   └── product.ts       # Tipo Product do catálogo
 │   ├── App.css             # Estilos da aplicação
-│   ├── App.tsx             # Layout, navegação e rotas principais
+│   ├── App.tsx             # Layout compartilhado e rotas principais
 │   ├── index.css           # Tokens visuais e estilos globais
 │   └── main.tsx            # Ponto de entrada do React
 ├── index.html              # Documento HTML inicial
@@ -57,7 +58,9 @@ Destilare/
 
 `src/main.tsx` inicializa o React e renderiza o componente principal.
 
-`src/App.tsx` concentra a estrutura atual da aplicação. O `BrowserRouter` usa `import.meta.env.BASE_URL` como `basename`, enquanto `Routes` e `Route` definem as páginas disponíveis. `Link` e `NavLink` fazem a navegação sem recarregar a aplicação.
+`src/App.tsx` concentra o layout compartilhado e as rotas principais. O `BrowserRouter` usa `import.meta.env.BASE_URL` como `basename`, enquanto `Routes` e `Route` definem as páginas disponíveis.
+
+`src/components/Header.tsx` contém o cabeçalho da aplicação. Seus componentes `Link` e `NavLink` permanecem dentro do `BrowserRouter` renderizado pelo `App`, preservando a navegação sem recarregar a aplicação. `src/components/Storefront.tsx` contém a vitrine inicial, e `src/components/HowItWasMade.tsx` contém a página reservada para a apresentação técnica.
 
 `src/types/product.ts` define o contrato esperado para os produtos. A fonte dos dados fica fora do código da interface, em `public/products.json`. Essa separação prepara o projeto para o conceito de headless commerce: o catálogo pode evoluir independentemente da camada responsável pela vitrine.
 
