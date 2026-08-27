@@ -12,24 +12,29 @@ A fundação da aplicação já está pronta:
 
 - React, TypeScript, Vite e React Router DOM estão configurados.
 - `BrowserRouter` já usa `import.meta.env.BASE_URL` como `basename`.
-- `public/products.json` contém seis produtos e o tipo `Product` está definido.
+- `public/products.json` contém seis produtos e os contratos estão organizados em `src/Interfaces` e `src/types`.
 - `npm run lint` e `npm run build` passam atualmente.
-- A rota `/` ainda exibe apenas o hero e um preview textual do catálogo.
+- A rota `/` exibe o hero e o catálogo dinâmico.
 
-Pendências diretamente relacionadas à Fase 2:
+Implementação concluída nesta fase:
 
-- não há carregamento do JSON por `fetch`;
-- não existem estados de carregamento, erro, catálogo vazio ou nova tentativa;
-- não existem cards nem uma grade de produtos;
-- não existe busca nem contador de resultados;
-- os estilos ainda não cobrem formulário, cards e estados do catálogo;
-- as imagens externas ainda precisam ser revisadas quanto à estabilidade e licença.
+- carregamento do JSON por `fetch` em `Catalog`;
+- estados de carregamento, erro, catálogo vazio, busca sem resultados e nova tentativa;
+- cards acessíveis em `ProductCard` e grade responsiva;
+- busca por nome, categoria e descrição, com normalização de acentos;
+- contador de resultados e preços em reais;
+- estilos para formulário, cards e estados do catálogo.
+
+Pendências posteriores:
+
+- as imagens externas ainda precisam ser revisadas quanto à estabilidade e licença;
+- a página `/como-fiz`, o deploy e a validação visual publicada pertencem às próximas fases.
 
 ## Escopo
 
 ### Incluído
 
-- Tipos para o estado do catálogo.
+- Tipos e interfaces organizados em `src/types` e `src/Interfaces`.
 - Carregamento de `products.json` no componente da vitrine.
 - Renderização dinâmica de cards acessíveis.
 - Busca por nome, categoria e descrição.
@@ -49,9 +54,9 @@ Pendências diretamente relacionadas à Fase 2:
 
 ## Sequência de implementação
 
-### 1. Modelar os estados
+### 1. Modelar os estados — concluído
 
-Manter `Product` em `src/types/product.ts` e adicionar um estado explícito para o carregamento, por exemplo:
+`Product` está definido em `src/Interfaces/product.ts`, as props do catálogo em `src/Interfaces/catalog.ts` e o estado explícito em `src/types/catalog.ts`:
 
 ```ts
 type CatalogStatus = "loading" | "success" | "error";
@@ -59,7 +64,7 @@ type CatalogStatus = "loading" | "success" | "error";
 
 O componente também deverá controlar a lista de produtos, o termo de busca e a mensagem de erro. Não é necessário criar uma camada de API ou hook separado antes de existir duplicação real.
 
-### 2. Carregar o catálogo
+### 2. Carregar o catálogo — concluído
 
 No componente responsável pela vitrine, implementar:
 
@@ -79,13 +84,13 @@ O fluxo deve:
 
 O caminho deve utilizar `BASE_URL`, pois `/products.json` quebra quando a aplicação é publicada em um subdiretório.
 
-### 3. Criar os cards
+### 3. Criar os cards — concluído
 
-Criar uma composição simples, inicialmente próxima de `App.tsx`:
+Criar uma composição simples em componentes dedicados:
 
-- `CatalogSection`: busca, contador e grade;
-- `ProductCard`: apresentação de um produto;
-- `CatalogState`: loading, erro e estados vazios.
+- `Catalog`: busca, contador, carregamento e grade;
+- `ProductCard`: apresentação de um produto em `src/components/ProductCard.tsx`;
+- `CatalogState`: loading, erro e estados vazios dentro de `Catalog`.
 
 Cada card deve mostrar:
 
@@ -106,7 +111,7 @@ new Intl.NumberFormat("pt-BR", {
 }).format(product.price)
 ```
 
-### 4. Implementar a busca
+### 4. Implementar a busca — concluído
 
 Adicionar um formulário acessível com:
 
@@ -127,7 +132,7 @@ value
   .replace(/\p{Diacritic}/gu, "")
 ```
 
-### 5. Cobrir estados visuais
+### 5. Cobrir estados visuais — concluído
 
 Distinguir os seguintes estados:
 
@@ -139,7 +144,7 @@ Distinguir os seguintes estados:
 
 A mensagem de catálogo vazio não deve ser a mesma de busca sem resultados.
 
-### 6. Atualizar a composição da loja
+### 6. Atualizar a composição da loja — concluído
 
 A rota inicial deverá seguir uma hierarquia semelhante a:
 
@@ -153,7 +158,7 @@ A rota inicial deverá seguir uma hierarquia semelhante a:
 
 O texto provisório de que o catálogo está sendo preparado deve ser removido quando o carregamento real estiver conectado.
 
-### 7. Ajustar os estilos
+### 7. Ajustar os estilos — concluído
 
 Atualizar `src/App.css` para incluir:
 
@@ -218,4 +223,4 @@ Depois, validar no navegador:
 
 ## Próximo passo imediato
 
-Implementar os tipos de estado e o carregamento do catálogo em `Storefront`. Em seguida, executar lint/build antes de avançar para a busca e para o refinamento visual.
+Completar `/como-fiz`, revisar as imagens externas e preparar o deploy no GitHub Pages. Antes da publicação, executar lint/build e validar rede, busca, navegação e viewport móvel.

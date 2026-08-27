@@ -6,14 +6,14 @@ Construir a mini-loja estática Destilare, uma vitrine de whiskys com identidade
 
 ### Fase 1: Fundação e identidade
 1. Substituir o fluxo demonstrativo `BomDia` em `src/App.tsx` por uma composição de loja com duas rotas React Router DOM: vitrine `/` e explicação `/como-fiz`. Manter a solução simples e compatível com hospedagem estática, usando `BrowserRouter` com o `BASE_URL` como `basename`.
-2. Definir tipos de domínio para produto e estado de carregamento/erro; remover a dependência conceitual do tipo `Teste` e do componente de saudação.
+2. Definir contratos de domínio para produto, props e estado de carregamento/erro; organizar interfaces em `src/Interfaces` e tipos em `src/types`.
 3. Criar `public/products.json` com pelo menos 6 whiskys fictícios e autorais, cada um com identificador, nome, categoria, descrição, preço, imagem e atributos úteis para a vitrine. Não colocar dados de produtos no JSX/HTML.
 4. Escolher uma identidade visual própria para Destilare: editorial, sofisticada e legível, com paleta de carvalho, carvão e cobre, tipografia expressiva carregada de forma apropriada e layout responsivo. Usar imagens reais/licenciadas ou URLs estáveis adequadas ao catálogo, evitando depender de ativos inexistentes.
 
 ### Fase 2: Catálogo e interação
-5. Implementar o carregamento do catálogo no componente que controla a vitrine usando `fetch(`${import.meta.env.BASE_URL}products.json`)`, com estados explícitos de carregamento, erro e catálogo vazio.
-6. Renderizar os produtos dinamicamente em cards acessíveis, mostrando imagem, nome, categoria, descrição curta e preço formatado em reais.
-7. Adicionar busca funcionando sobre nome, categoria e descrição, com contador de resultados e estado vazio. A busca atende ao requisito mínimo; filtro adicional por categoria pode ser incluído se não aumentar complexidade desnecessária.
+5. [Concluído] Implementar o carregamento do catálogo em `src/components/Catalog.tsx` usando `fetch(`${import.meta.env.BASE_URL}products.json`)`, com estados explícitos de carregamento, erro e catálogo vazio.
+6. [Concluído] Renderizar os produtos dinamicamente em cards acessíveis no componente `src/components/ProductCard.tsx`, mostrando imagem, nome, categoria, descrição curta, preço em reais, origem, idade e notas.
+7. [Concluído] Adicionar busca sobre nome, categoria e descrição, com normalização de caixa/acentos, contador de resultados e estado sem correspondência.
 8. Criar navegação visível entre a loja e `/como-fiz`, além de uma seção de apresentação da marca e uma área de destaque que torne claro que o catálogo veio de dados externos.
 9. Construir `/como-fiz` como página de entrega: espaço de vídeo incorporado do YouTube não listado/Loom, resumo da organização dos arquivos, explicação do `fetch` e do headless commerce, mapa conceitual navegador → CDN → origem para AWS/cache, espaço para leitura do Lighthouse e pontos de integração futura de IA. Usar placeholder apenas até o usuário fornecer a URL final do vídeo, deixando a substituição evidente.
 
@@ -21,8 +21,8 @@ Construir a mini-loja estática Destilare, uma vitrine de whiskys com identidade
 10. Ajustar `vite.config.ts` para o nome real do repositório/base do GitHub Pages, preferencialmente por variável de ambiente para não hardcodar uma URL incorreta. Garantir que links internos e o `products.json` funcionem sob o subdiretório publicado.
 11. Definir uma estratégia de GitHub Pages: build de produção, publicação da pasta `dist` via GitHub Actions ou configuração equivalente já compatível com o repositório. Não presumir o nome do repositório antes de verificar o remoto/configuração local.
 12. Atualizar `index.html` para `lang="pt-BR"`, título e metadados da Destilare. Revisar favicon somente se existir um ativo válido.
-13. Reescrever `src/App.css` e `src/index.css` removendo estilos genéricos do template e cobrindo desktop, celular, foco de teclado, imagens, estados de erro/carregamento, formulário de busca e `/como-fiz`, sem introduzir overflow horizontal.
-14. Atualizar `README.md` com tema, estrutura, como executar localmente, como o `products.json` é carregado, decisão pelo GitHub Pages e checklist de publicação. Incluir um roteiro conciso para o vídeo baseado nas cinco perguntas do desafio.
+13. [Concluído] Reescrever `src/App.css` e `src/index.css` removendo estilos genéricos do template e cobrindo desktop, celular, foco de teclado, imagens, estados de erro/carregamento e formulário de busca, sem introduzir overflow horizontal.
+14. [Concluído] Atualizar `README.md` com tema, estrutura, como executar localmente, carregamento do `products.json`, decisão pelo GitHub Pages e próximas etapas.
 
 ### Fase 4: Validação e entrega
 15. Validar `npm run lint` e `npm run build`; corrigir apenas problemas introduzidos no escopo.
@@ -32,7 +32,10 @@ Construir a mini-loja estática Destilare, uma vitrine de whiskys com identidade
 19. Antes da entrega, testar em aba anônima e celular, inserir a URL real do vídeo, confirmar que o vídeo reproduz e reunir URL da loja e URL do repositório.
 
 **Arquivos relevantes**
-- `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\src\App.tsx` — composição da vitrine, carregamento do catálogo, busca e seleção da página.
+- `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\src\App.tsx` — layout compartilhado e seleção das rotas.
+- `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\src\components\Storefront.tsx` — hero e composição da vitrine.
+- `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\src\components\Catalog.tsx` — carregamento, busca, estados e grade do catálogo.
+- `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\src\components\ProductCard.tsx` — apresentação individual de produto.
 - `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\src\App.css` — estilos da loja, catálogo, busca, estados e página `/como-fiz`.
 - `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\src\index.css` — reset, tokens, fontes e regras globais responsivas.
 - `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\public\products.json` — fonte externa com no mínimo 6 produtos.
@@ -40,7 +43,8 @@ Construir a mini-loja estática Destilare, uma vitrine de whiskys com identidade
 - `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\index.html` — idioma, título e metadados.
 - `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\README.md` — execução, arquitetura, publicação e roteiro de explicação.
 - `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\package.json` — scripts existentes (`dev`, `build`, `lint`, `preview`); adicionar dependências somente se necessárias.
-- `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\src\components\BomDia.tsx` e `src\types\teste.ts` — candidatos a remoção ou substituição após confirmar que não haverá uso.
+- `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\src\Interfaces\product.ts` e `src\Interfaces\catalog.ts` — contratos das entidades e props.
+- `c:\PROJECTS\Projetos\Desafio-CompassUOL\Destilare\src\types\catalog.ts` — tipo do estado do catálogo.
 
 **Verificação**
 1. `npm run lint`.

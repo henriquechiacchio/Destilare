@@ -4,17 +4,20 @@ Destilare é uma mini-loja de whiskys criada para o desafio **Minha Loja no Ar**
 
 ## Estado atual
 
-A Fase 1, de fundação e identidade, está concluída. A aplicação já possui:
+A Fase 2, de catálogo e interação, também está concluída. A aplicação já possui:
 
 - front-end desenvolvido com React e TypeScript;
 - navegação declarativa com React Router DOM;
 - rotas para a loja (`/`) e para a página explicativa (`/como-fiz`);
 - identidade visual editorial, inspirada em carvalho, cobre e papel;
-- catálogo separado do front-end em `public/products.json`, com seis produtos;
+- catálogo separado do front-end em `public/products.json`, com seis produtos carregados por `fetch`;
+- busca por nome, categoria e descrição, com normalização de caixa e acentos;
+- contador de resultados e estados de carregamento, erro, catálogo vazio e busca sem resultados;
+- cards de produtos separados em componente próprio, com preço em reais e metadados de degustação;
 - layout responsivo inicial para desktop e celular;
 - configuração para usar o `BASE_URL` como `basename` do roteador, preparando a publicação em subdiretório no GitHub Pages.
 
-O carregamento do catálogo via `fetch`, a renderização dos cards, a busca e os conteúdos completos da página `/como-fiz` serão implementados nas próximas fases.
+Ainda faltam o conteúdo completo da página `/como-fiz`, a configuração final de publicação e a validação visual em ambiente publicado.
 
 ## Tecnologias
 
@@ -38,9 +41,14 @@ Destilare/
 │   ├── components/
 │   │   ├── Header.tsx       # Cabeçalho e navegação principal
 │   │   ├── HowItWasMade.tsx # Página explicativa
-│   │   └── Storefront.tsx   # Vitrine inicial
+│   │   ├── Catalog.tsx      # Carregamento, busca e estados do catálogo
+│   │   ├── ProductCard.tsx  # Card individual de produto
+│   │   └── Storefront.tsx   # Hero e composição da vitrine
+│   ├── Interfaces/
+│   │   ├── catalog.ts       # Props dos componentes do catálogo
+│   │   └── product.ts       # Interface Product
 │   ├── types/
-│   │   └── product.ts       # Tipo Product do catálogo
+│   │   └── catalog.ts       # Tipo CatalogStatus
 │   ├── App.css             # Estilos da aplicação
 │   ├── App.tsx             # Layout compartilhado e rotas principais
 │   ├── index.css           # Tokens visuais e estilos globais
@@ -60,9 +68,11 @@ Destilare/
 
 `src/App.tsx` concentra o layout compartilhado e as rotas principais. O `BrowserRouter` usa `import.meta.env.BASE_URL` como `basename`, enquanto `Routes` e `Route` definem as páginas disponíveis.
 
-`src/components/Header.tsx` contém o cabeçalho da aplicação. Seus componentes `Link` e `NavLink` permanecem dentro do `BrowserRouter` renderizado pelo `App`, preservando a navegação sem recarregar a aplicação. `src/components/Storefront.tsx` contém a vitrine inicial, e `src/components/HowItWasMade.tsx` contém a página reservada para a apresentação técnica.
+`src/components/Header.tsx` contém o cabeçalho da aplicação. Seus componentes `Link` e `NavLink` permanecem dentro do `BrowserRouter` renderizado pelo `App`, preservando a navegação sem recarregar a aplicação. `src/components/Storefront.tsx` contém o hero e usa `Catalog` para compor a vitrine. `src/components/HowItWasMade.tsx` contém a página reservada para a apresentação técnica.
 
-`src/types/product.ts` define o contrato esperado para os produtos. A fonte dos dados fica fora do código da interface, em `public/products.json`. Essa separação prepara o projeto para o conceito de headless commerce: o catálogo pode evoluir independentemente da camada responsável pela vitrine.
+`src/Interfaces/product.ts` define o contrato esperado para os produtos, enquanto `src/Interfaces/catalog.ts` reúne as props dos componentes do catálogo. O estado de carregamento fica em `src/types/catalog.ts`. A fonte dos dados fica fora do código da interface, em `public/products.json`. Essa separação prepara o projeto para o conceito de headless commerce: o catálogo pode evoluir independentemente da camada responsável pela vitrine.
+
+`src/components/Catalog.tsx` carrega `products.json` com `${import.meta.env.BASE_URL}products.json`, controla a busca e apresenta os estados da fonte de dados. `src/components/ProductCard.tsx` apresenta cada produto sem duplicar dados no JSX. Os preços são formatados com `Intl.NumberFormat` em `pt-BR`.
 
 `src/index.css` contém os tokens de cor, tipografia, reset e regras globais. `src/App.css` contém os estilos específicos do shell, cabeçalho, hero, rodapé e página `/como-fiz`.
 
@@ -97,12 +107,10 @@ npm run lint
 
 ## Próximas etapas
 
-1. Carregar `products.json` por `fetch` usando `import.meta.env.BASE_URL`.
-2. Renderizar o catálogo de forma dinâmica em cards acessíveis.
-3. Implementar busca por nome, categoria e descrição.
-4. Completar a página `/como-fiz` com vídeo, explicação de headless commerce, cache, CDN, AWS e possibilidades de IA.
-5. Configurar a publicação do build no GitHub Pages.
-6. Testar a aplicação em celular, aba anônima e Lighthouse.
+1. Completar a página `/como-fiz` com vídeo e explicação das decisões técnicas.
+2. Configurar a publicação do build no GitHub Pages após confirmar o nome do repositório.
+3. Revisar estabilidade e licença das imagens externas.
+4. Testar a aplicação em celular, aba anônima, rede e Lighthouse.
 
 ## Publicação
 
