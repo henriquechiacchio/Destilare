@@ -34,43 +34,46 @@ Este estado reflete a implementação final e não uma versão em desenvolviment
 
 ```text
 Destilare/
+├── .git/
+├── .gitignore
+├── .oxlintrc.json
+├── dist/                     # Build de produção gerado pelo Vite
+├── node_modules/             # Dependências instaladas
+├── package-lock.json
+├── package.json              # Scripts e dependências do projeto
+├── index.html                # HTML base do Vite
+├── tsconfig.json             # Configuração base do TypeScript
+├── tsconfig.app.json         # Configuração do app
+├── tsconfig.node.json        # Configuração do Vite
+├── vite.config.ts            # Base do app para GitHub Pages
+├── README.md                 # Documentação principal
 ├── public/
 │   ├── 404.html              # Fallback de rotas para GitHub Pages
 │   ├── Imagens/              # Imagens locais dos produtos
+│   ├── products.json         # Catálogo de whiskys em JSON
 │   ├── logofundo.png         # Logo da marca
 │   ├── logosfundo.png        # Variante de logo
-│   ├── products.json         # Catálogo de whiskys em JSON
-│   └── favicon.svg           # Favicon do site (quando usado no projeto)
-├── planejamento/
-│   ├── Geracao-Imagens.md
-│   ├── plano-fase-2-catalogo.md
-│   └── plan-lojaDestilareNoAr.prompt.md
 ├── src/
+│   ├── App.css               # Estilos gerais do projeto
+│   ├── App.tsx               # Layout e rotas principais
+│   ├── index.css             # Reset e tokens visuais
+│   ├── main.tsx              # Entrada da aplicação
 │   ├── components/
-│   │   ├── Catalog.tsx       # Lista, busca e estados do catálogo
+│   │   ├── Catalog.tsx       # Busca, listagem e estados do catálogo
 │   │   ├── Header.tsx        # Cabeçalho e navegação
 │   │   ├── HowItWasMade.tsx  # Página explicativa
-│   │   ├── ProductCard.tsx   # Card do produto
+│   │   ├── ProductCard.tsx   # Card individual de produto
 │   │   └── Storefront.tsx    # Hero e vitrine inicial
 │   ├── Interfaces/
 │   │   ├── catalog.ts        # Props do catálogo
 │   │   └── product.ts        # Contrato Product
-│   ├── types/
-│   │   └── catalog.ts        # Tipo do status do catálogo
-│   ├── App.css               # Estilos da aplicação
-│   ├── App.tsx               # Montagem de rotas e layout geral
-│   ├── index.css             # Reset e tokens visuais
-│   └── main.tsx              # Entrada da aplicação
-├── index.html                # HTML base do Vite
-├── package.json              # Scripts e dependências
-├── tsconfig.json             # Configuração base do TS
-├── tsconfig.app.json         # Configuração do app
-├── tsconfig.node.json        # Configuração do Vite
-├── vite.config.ts            # Configuração de base do GitHub Pages
-├── README.md                 # Documentação principal
-├── .gitignore
-├── package-lock.json
-└── .github/                  # Configuração externa quando aplicada ao repositório
+│   └── types/
+│       └── catalog.ts        # Tipo do status do catálogo
+├── planejamento/
+│   ├── ContextoDestilare.md  # Visão consolidada do projeto
+│   ├── Geracao-Imagens.md    # Referência visual da coleção
+│   ├── Imagens/              # Arquivos de imagem de apoio
+└── dist/                     # Build final de produção
 ```
 
 ## Como a aplicação funciona
