@@ -114,7 +114,19 @@ npm run lint
 
 ## Publicação
 
-A hospedagem planejada é o GitHub Pages, por ser gratuita e transformar o repositório em parte do portfólio. O nome do repositório ainda precisa ser confirmado para definir o `base` definitivo do Vite e validar os acessos diretos às rotas publicadas.
+A hospedagem planejada é o GitHub Pages, por ser gratuita e transformar o repositório em parte do portfólio. A estrutura do projeto já é compatível com a plataforma, mas há um passo adicional importante para funcionar corretamente com as rotas do React Router:
+
+1. O repositório precisa ter o mesmo nome usado no `base` do Vite. Como este projeto está em `Destilare`, o valor correto em produção é `/Destilare/`.
+2. O `BrowserRouter` precisa de uma fallback para rotas diretas, porque o GitHub Pages não reescreve URLs de forma dinâmica como um servidor Node/Express. Em prática, o build deve ser publicado com um `404.html` de redirecionamento ou com uma configuração equivalente de fallback.
+3. A publicação pode ser feita pela branch `gh-pages` ou pelo fluxo de GitHub Pages do próprio repositório, usando o conteúdo gerado em `dist/` após o `npm run build`.
+
+Exemplo de fluxo recomendado:
+
+```bash
+npm run build
+```
+
+Depois, publique a pasta `dist` no GitHub Pages do repositório. Se o projeto for acessado por rota direta como `/como-fiz`, a fallback de SPA deve estar ativa para evitar erro 404.
 
 ## Desafio
 

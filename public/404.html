@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecionando...</title>
+    <script>
+      (function () {
+        const repoBase = "/Destilare";
+        const pathname = window.location.pathname;
+        const normalized = pathname.replace(/\/+$/, "") || "/";
+        const relativePath = normalized.startsWith(repoBase)
+          ? normalized.slice(repoBase.length) || "/"
+          : pathname || "/";
+
+        const redirectUrl = `${repoBase}/?redirect=${encodeURIComponent(relativePath)}`;
+        window.location.replace(redirectUrl);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
