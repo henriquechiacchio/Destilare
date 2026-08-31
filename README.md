@@ -1,133 +1,190 @@
 # Destilare
 
-Destilare é uma mini-loja de whiskys criada para o desafio **Minha Loja no Ar**, da trilha Commerce do Bootcamp AI/R. O projeto está sendo desenvolvido como uma vitrine estática, com identidade visual própria e foco em explicar as decisões técnicas por trás da aplicação.
+Destilare é uma vitrine premium de whiskys criada como projeto de front-end estático em React + TypeScript. O objetivo é apresentar uma loja editorial, com narrativa de marca, catálogo em JSON e publicação em GitHub Pages sem perder a navegação por rotas.
 
-## Estado atual
+## Estado atual do projeto
 
-A Fase 2, de catálogo e interação, também está concluída. A aplicação já possui:
+O projeto já está em estado funcional e publicado. Atualmente, a aplicação conta com:
 
-- front-end desenvolvido com React e TypeScript;
-- navegação declarativa com React Router DOM;
-- rotas para a loja (`/`) e para a página explicativa (`/como-fiz`);
-- identidade visual editorial, inspirada em carvalho, cobre e papel;
-- catálogo separado do front-end em `public/products.json`, com seis produtos carregados por `fetch`;
-- busca por nome, categoria e descrição, com normalização de caixa e acentos;
-- contador de resultados e estados de carregamento, erro, catálogo vazio e busca sem resultados;
-- cards de produtos separados em componente próprio, com preço em reais e metadados de degustação;
-- layout responsivo inicial para desktop e celular;
-- configuração para usar o `BASE_URL` como `basename` do roteador, preparando a publicação em subdiretório no GitHub Pages.
+- front-end em React 19 com TypeScript;
+- navegação com React Router DOM em duas rotas principais: `/` e `/como-fiz`;
+- identidade visual editorial inspirada em madeira, cobre e papel;
+- catálogo dinâmico carregado a partir de `public/products.json` via `fetch`;
+- busca por nome, categoria e descrição com normalização de acentos e caixa;
+- controle de estados de carregamento, erro e catálogo vazio;
+- visual responsivo para desktop e mobile;
+- fallback para rotas no GitHub Pages com `public/404.html`;
+- publicação no GitHub Pages com o build gerado por Vite;
+- assets locais em `public/Imagens` e logo em `public/` para evitar dependência de URLs externas.
 
-Ainda faltam o conteúdo completo da página `/como-fiz`, a configuração final de publicação e a validação visual em ambiente publicado.
+Este estado reflete a implementação final e não uma versão em desenvolvimento incompleta.
 
-## Tecnologias
+## Tecnologias utilizadas
 
-- **React 19**: construção da interface em componentes.
-- **TypeScript**: tipagem do código e dos dados de domínio.
-- **Vite**: servidor de desenvolvimento, HMR e build de produção.
-- **React Router DOM**: gerenciamento das rotas da loja e da página `/como-fiz`.
-- **CSS**: identidade visual, layout e responsividade sem biblioteca de estilos.
-- **Oxlint**: análise estática e padronização do código.
-- **Google Fonts**: `Playfair Display` para títulos e `DM Mono` para textos de apoio.
+- React 19
+- TypeScript
+- Vite
+- React Router DOM
+- CSS nativo
+- GitHub Pages
+- gh-pages
+- Google Fonts (`Playfair Display` e `DM Mono`)
 
-## Estrutura do projeto
+## Estrutura atual do projeto
 
 ```text
 Destilare/
 ├── public/
-│   └── products.json       # Catálogo externo de produtos
+│   ├── 404.html              # Fallback de rotas para GitHub Pages
+│   ├── Imagens/              # Imagens locais dos produtos
+│   ├── logofundo.png         # Logo da marca
+│   ├── logosfundo.png        # Variante de logo
+│   ├── products.json         # Catálogo de whiskys em JSON
+│   └── favicon.svg           # Favicon do site (quando usado no projeto)
 ├── planejamento/
+│   ├── Geracao-Imagens.md
+│   ├── plano-fase-2-catalogo.md
 │   └── plan-lojaDestilareNoAr.prompt.md
 ├── src/
 │   ├── components/
-│   │   ├── Header.tsx       # Cabeçalho e navegação principal
-│   │   ├── HowItWasMade.tsx # Página explicativa
-│   │   ├── Catalog.tsx      # Carregamento, busca e estados do catálogo
-│   │   ├── ProductCard.tsx  # Card individual de produto
-│   │   └── Storefront.tsx   # Hero e composição da vitrine
+│   │   ├── Catalog.tsx       # Lista, busca e estados do catálogo
+│   │   ├── Header.tsx        # Cabeçalho e navegação
+│   │   ├── HowItWasMade.tsx  # Página explicativa
+│   │   ├── ProductCard.tsx   # Card do produto
+│   │   └── Storefront.tsx    # Hero e vitrine inicial
 │   ├── Interfaces/
-│   │   ├── catalog.ts       # Props dos componentes do catálogo
-│   │   └── product.ts       # Interface Product
+│   │   ├── catalog.ts        # Props do catálogo
+│   │   └── product.ts        # Contrato Product
 │   ├── types/
-│   │   └── catalog.ts       # Tipo CatalogStatus
-│   ├── App.css             # Estilos da aplicação
-│   ├── App.tsx             # Layout compartilhado e rotas principais
-│   ├── index.css           # Tokens visuais e estilos globais
-│   └── main.tsx            # Ponto de entrada do React
-├── index.html              # Documento HTML inicial
-├── package.json            # Dependências e scripts
-├── tsconfig.json           # Configuração base do TypeScript
-├── tsconfig.app.json       # Configuração TypeScript da aplicação
-├── tsconfig.node.json      # Configuração TypeScript do Vite
-├── vite.config.ts          # Configuração do Vite
-└── .gitignore              # Arquivos que não devem ser versionados
+│   │   └── catalog.ts        # Tipo do status do catálogo
+│   ├── App.css               # Estilos da aplicação
+│   ├── App.tsx               # Montagem de rotas e layout geral
+│   ├── index.css             # Reset e tokens visuais
+│   └── main.tsx              # Entrada da aplicação
+├── index.html                # HTML base do Vite
+├── package.json              # Scripts e dependências
+├── tsconfig.json             # Configuração base do TS
+├── tsconfig.app.json         # Configuração do app
+├── tsconfig.node.json        # Configuração do Vite
+├── vite.config.ts            # Configuração de base do GitHub Pages
+├── README.md                 # Documentação principal
+├── .gitignore
+├── package-lock.json
+└── .github/                  # Configuração externa quando aplicada ao repositório
 ```
 
-## Organização da aplicação
+## Como a aplicação funciona
 
-`src/main.tsx` inicializa o React e renderiza o componente principal.
+### 1. Vitrine e navegação
+`src/App.tsx` monta a estrutura da aplicação com `BrowserRouter` e define duas rotas:
 
-`src/App.tsx` concentra o layout compartilhado e as rotas principais. O `BrowserRouter` usa `import.meta.env.BASE_URL` como `basename`, enquanto `Routes` e `Route` definem as páginas disponíveis.
+- `/` → vitrine principal
+- `/como-fiz` → página de explicação do projeto
 
-`src/components/Header.tsx` contém o cabeçalho da aplicação. Seus componentes `Link` e `NavLink` permanecem dentro do `BrowserRouter` renderizado pelo `App`, preservando a navegação sem recarregar a aplicação. `src/components/Storefront.tsx` contém o hero e usa `Catalog` para compor a vitrine. `src/components/HowItWasMade.tsx` contém a página reservada para a apresentação técnica.
+A navegação é feita com `Link` e `NavLink` do React Router DOM, mantendo a experiência de SPA.
 
-`src/Interfaces/product.ts` define o contrato esperado para os produtos, enquanto `src/Interfaces/catalog.ts` reúne as props dos componentes do catálogo. O estado de carregamento fica em `src/types/catalog.ts`. A fonte dos dados fica fora do código da interface, em `public/products.json`. Essa separação prepara o projeto para o conceito de headless commerce: o catálogo pode evoluir independentemente da camada responsável pela vitrine.
+### 2. Catálogo externo
+O catálogo não fica embutido em JSX. Ele é carregado do arquivo `public/products.json` usando:
 
-`src/components/Catalog.tsx` carrega `products.json` com `${import.meta.env.BASE_URL}products.json`, controla a busca e apresenta os estados da fonte de dados. `src/components/ProductCard.tsx` apresenta cada produto sem duplicar dados no JSX. Os preços são formatados com `Intl.NumberFormat` em `pt-BR`.
+```ts
+fetch(`${import.meta.env.BASE_URL}products.json`)
+```
 
-`src/index.css` contém os tokens de cor, tipografia, reset e regras globais. `src/App.css` contém os estilos específicos do shell, cabeçalho, hero, rodapé e página `/como-fiz`.
+Esse padrão é importante porque a aplicação pode ser publicada dentro de um subdiretório no GitHub Pages sem quebrar os caminhos.
+
+### 3. Busca e estados
+`src/components/Catalog.tsx` controla:
+
+- termo de busca;
+- produtos filtrados;
+- loading;
+- erro;
+- catálogo vazio;
+- busca sem resultados;
+- contador de itens encontrados.
+
+A busca normaliza caixa e acentos para funcionar bem em português.
+
+### 4. Design e marca
+A identidade visual foi pensada como premium e editorial, com paleta em bege, marrom, cobre e carvão. A tipografia usa `Playfair Display` para títulos e `DM Mono` para detalhes de apoio.
 
 ## Como executar localmente
 
-Pré-requisito: Node.js instalado.
+Requisitos:
+
+- Node.js instalado
+- npm ou pnpm
 
 ```bash
 npm install
 npm run dev
 ```
 
-O Vite exibirá a URL local no terminal. Para validar a versão de produção:
+Para validar a build de produção:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-Para executar a verificação de lint:
+Para lint:
 
 ```bash
 npm run lint
 ```
 
-## Rotas atuais
+## Publicação no GitHub Pages
 
-| Rota | Finalidade |
-| --- | --- |
-| `/` | Vitrine inicial da Destilare |
-| `/como-fiz` | Página reservada para o vídeo e a explicação técnica |
+O projeto foi preparado para ser hospedado em GitHub Pages. A configuração atual leva em conta alguns pontos importantes:
 
-## Próximas etapas
+1. O `vite.config.ts` usa base de produção com o nome do repositório:
 
-1. Completar a página `/como-fiz` com vídeo e explicação das decisões técnicas.
-2. Configurar a publicação do build no GitHub Pages após confirmar o nome do repositório.
-3. Revisar estabilidade e licença das imagens externas.
-4. Testar a aplicação em celular, aba anônima, rede e Lighthouse.
+```ts
+const repoName = 'Destilare'
+export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? `/${repoName}/` : '/',
+})
+```
 
-## Publicação
+2. O `BrowserRouter` usa `basename={import.meta.env.BASE_URL}` para funcionar em subpasta.
 
-A hospedagem planejada é o GitHub Pages, por ser gratuita e transformar o repositório em parte do portfólio. A estrutura do projeto já é compatível com a plataforma, mas há um passo adicional importante para funcionar corretamente com as rotas do React Router:
+3. Um fallback de rota foi inserido em `public/404.html` para evitar que URLs diretas de rota retornem erro quando servidas por GitHub Pages.
 
-1. O repositório precisa ter o mesmo nome usado no `base` do Vite. Como este projeto está em `Destilare`, o valor correto em produção é `/Destilare/`.
-2. O `BrowserRouter` precisa de uma fallback para rotas diretas, porque o GitHub Pages não reescreve URLs de forma dinâmica como um servidor Node/Express. Em prática, o build deve ser publicado com um `404.html` de redirecionamento ou com uma configuração equivalente de fallback.
-3. A publicação pode ser feita pela branch `gh-pages` ou pelo fluxo de GitHub Pages do próprio repositório, usando o conteúdo gerado em `dist/` após o `npm run build`.
-
-Exemplo de fluxo recomendado:
+4. O deploy foi realizado com a estratégia do `gh-pages`:
 
 ```bash
 npm run build
+npm run deploy
 ```
 
-Depois, publique a pasta `dist` no GitHub Pages do repositório. Se o projeto for acessado por rota direta como `/como-fiz`, a fallback de SPA deve estar ativa para evitar erro 404.
+Essa abordagem publica o conteúdo de `dist/` na branch do Pages e torna o site acessível publicamente.
 
-## Desafio
+## Observações importantes de deploy
 
-O projeto atende ao desafio **Minha Loja no Ar**, que solicita uma loja pública, um catálogo externo carregado por `fetch`, busca ou filtro por categoria e uma página `/como-fiz` com vídeo explicando a construção e as decisões técnicas.
+- A rota `/como-fiz` só funciona corretamente quando o fallback do `404.html` está ativo.
+- O `products.json` deve continuar em `public/` e usar caminhos relativos locais, como `Imagens/ReservaDeCarvalho.jpg`.
+- O site é estático e não depende de backend; por isso a solução de fallback é necessária.
+- O conteúdo e os produtos ficam facilmente editáveis em `public/products.json` sem necessidade de alterar a lógica de renderização.
+
+## Decisões de arquitetura
+
+A solução adotada prioriza simplicidade e manutenção:
+
+- catálogo em JSON para facilitar manutenção;
+- assets locais para garantir estabilidade de imagem;
+- CSS nativo para reduzir dependências e deixar o projeto leve;
+- rota de explicação para apresentar o processo de construção;
+- GitHub Pages como forma de publicar um portfólio funcional e de baixa complexidade.
+
+## Status final
+
+Projeto concluído e em produção no GitHub Pages, com a experiência principal funcionando, catálogo carregando corretamente, navegação correta e design ajustado para mobile.
+
+## Próximos passos opcionais
+
+Se a equipe quiser evoluir o projeto, sugestões futuras incluem:
+
+- incluir vídeo definitivo na página `/como-fiz`;
+- adicionar filtros abertos por faixa de preço ou categoria;
+- criar uma página de detalhe do produto;
+- evoluir a marca para uma identidade ainda mais premium com seleções de tipografia e imagens de campanha.

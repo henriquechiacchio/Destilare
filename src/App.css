@@ -447,20 +447,17 @@ h2 {
 
 @media (max-width: 640px) {
   .site-header,
-  .storefront,
-  .how-it-was-made,
   .site-footer {
+    width: 100%;
+  }
+
+  .storefront,
+  .how-it-was-made {
     width: min(100% - 24px, 1180px);
   }
 
   .site-header {
     padding: 20px 0;
-  }
-
-  .site-header > .brand,
-  .site-header > nav,
-  .site-footer > .site-footer__inner {
-    width: min(100% - 24px, 1180px);
   }
 
   .site-header nav {
