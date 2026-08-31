@@ -22,8 +22,10 @@ function AppRoutes() {
       </Routes>
 
       <footer className="site-footer">
-        <span>Destilare · desde 2026</span>
-        <span>Uma boa história pede tempo.</span>
+        <div className="site-footer__inner">
+          <span>Destilare · desde 2026</span>
+          <span>Uma boa história pede tempo.</span>
+        </div>
       </footer>
     </>
   );

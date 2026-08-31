@@ -7,7 +7,7 @@ function Storefront() {
         <p className="eyebrow">Curadoria de pequenos lotes</p>
         <h1 id="storefront-title">Destilare</h1>
         <p className="storefront__intro">
-          O tempo transforma tudo.
+          Whiskys de origem e caráter marcante, escolhidos para quem gosta de descobrir o tempo em cada gole.
         </p>
         <a className="text-link" href="#catalogo">
           Explorar a coleção <span aria-hidden="true">↓</span>
