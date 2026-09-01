@@ -3,6 +3,7 @@ import type { CatalogStateProps } from "../Interfaces/catalog";
 import type { Product } from "../Interfaces/product";
 import type { CatalogStatus } from "../types/catalog";
 import ProductCard from "./ProductCard";
+import ProductDetail from "./ProductDetail";
 
 function normalize(value: string) {
   return value
@@ -33,6 +34,7 @@ function Catalog() {
   const [status, setStatus] = useState<CatalogStatus>("loading");
   const [searchTerm, setSearchTerm] = useState("");
   const [retryCount, setRetryCount] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -57,8 +59,24 @@ function Catalog() {
   const normalizedSearch = normalize(searchTerm.trim());
   const filteredProducts = catalog.filter((product) => {
     if (!normalizedSearch) return true;
-    return [product.name, product.category, product.description].some((value) => normalize(value).includes(normalizedSearch));
+
+    const searchableTerms = [
+      product.name,
+      product.category,
+      product.description,
+      product.detailedDescription ?? "",
+    ];
+
+    return searchableTerms.some((value) => normalize(value).includes(normalizedSearch));
   });
+
+  if (selectedProduct) {
+    return (
+      <section className="catalog" id="catalogo" aria-labelledby="collection-title">
+        <ProductDetail product={selectedProduct} onBack={() => setSelectedProduct(null)} />
+      </section>
+    );
+  }
 
   return (
     <section className="catalog" id="catalogo" aria-labelledby="collection-title">
@@ -77,7 +95,7 @@ function Catalog() {
       </div>
       {status === "success" && filteredProducts.length > 0 ? (
         <div className="product-grid">
-          {filteredProducts.map((product) => <ProductCard key={product.id} product={product} />)}
+          {filteredProducts.map((product) => <ProductCard key={product.id} product={product} onSelect={setSelectedProduct} />)}
         </div>
       ) : (
         <CatalogState status={status} hasSearch={Boolean(normalizedSearch)} onRetry={() => setRetryCount((count) => count + 1)} />

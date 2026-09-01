@@ -5,9 +5,14 @@ const currencyFormatter = new Intl.NumberFormat("pt-BR", {
   currency: "BRL",
 });
 
-function ProductCard({ product }: ProductCardProps) {
+function ProductCard({ product, onSelect }: ProductCardProps) {
   return (
-    <article className="product-card">
+    <article className="product-card" onClick={() => onSelect?.(product)} onKeyDown={(event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        onSelect?.(product);
+      }
+    }} tabIndex={0} role="button" aria-label={`Abrir detalhes do produto ${product.name}`}>
       <img className="product-card__image" src={product.image} alt={`${product.name}, garrafa de whisky`} />
       <div className="product-card__content">
         <div className="product-card__heading">
