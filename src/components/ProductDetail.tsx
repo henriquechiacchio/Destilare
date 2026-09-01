@@ -6,6 +6,22 @@ const currencyFormatter = new Intl.NumberFormat("pt-BR", {
   currency: "BRL",
 });
 
+/**
+ * Nome do item: ProductDetail
+ *
+ * Papel no projeto: Exibe a página completa de informações e compra de um
+ * produto selecionado.
+ *
+ * Funcionamento: Mostra imagem, descrição, preço, origem e notas, controla a
+ * quantidade escolhida e chama onAddToCart ao adicionar o produto. Também
+ * apresenta uma confirmação temporária após a ação.
+ *
+ * Dependências e integrações: Recebe ProductDetailProps, usa hooks do React e
+ * é renderizado pela página ProductDetailPage.
+ *
+ * Observações: A quantidade mínima é um e ações repetidas rapidamente são
+ * ignoradas para evitar duplicidade acidental.
+ */
 function ProductDetail({ product, onBack, onAddToCart }: ProductDetailProps) {
   const [quantity, setQuantity] = useState(1);
   const [notice, setNotice] = useState("");

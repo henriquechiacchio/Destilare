@@ -1,3 +1,19 @@
+/*
+  Nome do item: App.css
+
+  Papel no projeto: Define o layout e a identidade visual dos componentes da
+  aplicação Destilare.
+
+  Funcionamento: Organiza os estilos do cabeçalho, hero, catálogo, cards,
+  detalhes de produto, carrinho, página institucional, rodapé e responsividade.
+
+  Dependências e integrações: É importado pelo App.tsx e utiliza as variáveis
+  de tema declaradas em index.css, além da variável dinâmica --hero-banner.
+
+  Observações: A media query no final adapta a interface para telas menores;
+  os nomes das classes seguem os componentes correspondentes.
+*/
+/* Estrutura geral, cabeçalho e identidade da marca. */
 .app-shell {
   min-height: 100svh;
   display: flex;

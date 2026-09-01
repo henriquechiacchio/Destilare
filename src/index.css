@@ -1,3 +1,17 @@
+/*
+  Nome do item: index.css
+
+  Papel no projeto: Define a base visual compartilhada por toda a aplicação.
+
+  Funcionamento: Configura fontes, cores, variáveis de tema, reset básico,
+  dimensões mínimas e estilos de foco para elementos interativos.
+
+  Dependências e integrações: É importado pelo main.tsx e fornece variáveis
+  como --ink, --background e --copper utilizadas em App.css.
+
+  Observações: As fontes são carregadas do Google Fonts e os estilos de foco
+  preservam a acessibilidade da navegação por teclado.
+*/
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root {

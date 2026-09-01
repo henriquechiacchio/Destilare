@@ -4,8 +4,25 @@ import type { CartContextValue, CartItem } from "../Interfaces/cart";
 import type { Product } from "../Interfaces/product";
 import { CartContext } from "./cart-context";
 
+/** Chave usada para persistir os itens do carrinho no armazenamento do navegador. */
 const STORAGE_KEY = "destilare-cart";
 
+/**
+ * Nome do item: readStoredCart
+ *
+ * Papel no projeto: Recupera os itens do carrinho salvos anteriormente no
+ * navegador.
+ *
+ * Funcionamento: Lê o valor de localStorage, converte o JSON para CartItem[] e
+ * retorna uma lista vazia quando não há dados, o ambiente não possui window,
+ * o conteúdo é inválido ou a leitura falha.
+ *
+ * Dependências e integrações: Usa STORAGE_KEY e localStorage para restaurar o
+ * estado inicial utilizado por CartProvider.
+ *
+ * Observações: A função falha de forma segura para não impedir a abertura da
+ * aplicação quando o armazenamento não está disponível ou está corrompido.
+ */
 function readStoredCart(): CartItem[] {
   if (typeof window === "undefined") {
     return [];
@@ -24,6 +41,23 @@ function readStoredCart(): CartItem[] {
   }
 }
 
+/**
+ * Nome do item: CartProvider
+ *
+ * Papel no projeto: Mantém o estado global do carrinho e fornece suas ações
+ * para os componentes da aplicação.
+ *
+ * Funcionamento: Inicializa os itens a partir do localStorage, salva as
+ * alterações automaticamente e expõe operações para adicionar, atualizar,
+ * remover e limpar produtos. Também calcula a quantidade total e o subtotal.
+ *
+ * Dependências e integrações: Usa React hooks, CartContextValue, Product,
+ * CartItem e CartContext. Envolve a aplicação no App.tsx e é consumido pelo
+ * hook useCart.
+ *
+ * Observações: Quantidades adicionadas são normalizadas para inteiros maiores
+ * ou iguais a um; ao chegar a zero, o produto é removido do carrinho.
+ */
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>(readStoredCart);
 

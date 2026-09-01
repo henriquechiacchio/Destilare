@@ -1,3 +1,19 @@
+/**
+ * Nome do item: HowItWasMade
+ *
+ * Papel no projeto: Apresenta os bastidores, as decisões técnicas e as
+ * funcionalidades implementadas na construção da Destilare.
+ *
+ * Funcionamento: Renderiza o vídeo de apresentação e seções textuais que
+ * explicam a arquitetura, os recursos desenvolvidos e possíveis usos futuros
+ * de inteligência artificial.
+ *
+ * Dependências e integrações: Usa os vídeos armazenados em public/videos e as
+ * classes de estilo definidas em App.css.
+ *
+ * Observações: A URL dos assets considera BASE_URL para funcionar também no
+ * subdiretório usado pelo GitHub Pages.
+ */
 function HowItWasMade() {
   const videoUrl = `${import.meta.env.BASE_URL}videos/destilare-presentation.mp4`;
   const posterUrl = `${import.meta.env.BASE_URL}videos/destilare-poster.webp`;

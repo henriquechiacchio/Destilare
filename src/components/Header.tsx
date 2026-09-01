@@ -3,6 +3,21 @@ import { Link, NavLink } from "react-router-dom";
 import CartDrawer from "./CartDrawer";
 import { useCart } from "../context/useCart";
 
+/**
+ * Nome do item: Header
+ *
+ * Papel no projeto: Apresenta a identidade da Destilare, a navegação principal
+ * e o acesso ao carrinho em todas as páginas.
+ *
+ * Funcionamento: Usa links do React Router, controla a abertura do CartDrawer
+ * e exibe a quantidade total de itens obtida pelo hook useCart.
+ *
+ * Dependências e integrações: Usa useState, Link, NavLink, CartDrawer e
+ * useCart; depende dos assets de logo e das rotas configuradas na aplicação.
+ *
+ * Observações: NavLink aplica o estado visual de rota ativa e o contador só é
+ * renderizado quando há itens no carrinho.
+ */
 function Header() {
   const logoPath = `${import.meta.env.BASE_URL}logo/logosfundo.webp`;
   const [isCartOpen, setIsCartOpen] = useState(false);

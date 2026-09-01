@@ -7,6 +7,22 @@ const currencyFormatter = new Intl.NumberFormat("pt-BR", {
   currency: "BRL",
 });
 
+/**
+ * Nome do item: CartDrawer
+ *
+ * Papel no projeto: Exibe o carrinho de compras em um painel lateral sobre a
+ * aplicação.
+ *
+ * Funcionamento: Usa o contexto do carrinho para listar produtos, alterar
+ * quantidades, remover itens, limpar o carrinho e calcular o subtotal. Também
+ * apresenta um estado vazio quando não existem produtos.
+ *
+ * Dependências e integrações: Recebe CartDrawerProps, usa o hook useCart e
+ * renderiza um CartItem para cada produto armazenado.
+ *
+ * Observações: A propriedade isOpen controla as classes de visibilidade e
+ * onClose fecha o painel pelo botão, pelo overlay ou após a navegação.
+ */
 function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const { items, subtotal, itemCount, updateQuantity, removeItem, clearCart } = useCart();
 

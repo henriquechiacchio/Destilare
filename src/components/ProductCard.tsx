@@ -5,6 +5,22 @@ const currencyFormatter = new Intl.NumberFormat("pt-BR", {
   currency: "BRL",
 });
 
+/**
+ * Nome do item: ProductCard
+ *
+ * Papel no projeto: Exibe um resumo visual e informativo de um produto no
+ * catálogo.
+ *
+ * Funcionamento: Monta o caminho da imagem, formata o preço em reais e exibe
+ * categoria, descrição, detalhes e notas de degustação. A seleção funciona
+ * por clique ou pelas teclas Enter e Espaço.
+ *
+ * Dependências e integrações: Recebe ProductCardProps e usa o modelo Product;
+ * o catálogo fornece onSelect para navegar à página de detalhes.
+ *
+ * Observações: O artigo possui semântica de botão, foco pelo teclado e rótulo
+ * acessível para preservar a navegação por tecnologias assistivas.
+ */
 function ProductCard({ product, onSelect }: ProductCardProps) {
   const productImage = `${import.meta.env.BASE_URL}${product.image.replace(/^\/+/, "")}`;
 

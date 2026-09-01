@@ -1,20 +1,27 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import type { CartItem as CartItemType } from "../Interfaces/cart";
+import type { CartItemProps } from "../Interfaces/cartItem";
 
 const currencyFormatter = new Intl.NumberFormat("pt-BR", {
   style: "currency",
   currency: "BRL",
 });
 
-interface CartItemProps {
-  item: CartItemType;
-  onIncrease: (productId: string) => void;
-  onDecrease: (productId: string) => void;
-  onRemove: (productId: string) => void;
-  onCloseCart?: () => void;
-}
-
+/**
+ * Nome do item: CartItem
+ *
+ * Papel no projeto: Apresenta um produto individual dentro do carrinho lateral.
+ *
+ * Funcionamento: Exibe imagem, nome, categoria, preço total do item e controles
+ * de quantidade. O bloqueio de ações rápidas evita duplo acionamento em um
+ * intervalo muito curto.
+ *
+ * Dependências e integrações: Usa CartItemProps, useRef, Link do React Router e
+ * os callbacks fornecidos pelo CartDrawer.
+ *
+ * Observações: O link leva à página de detalhes e os botões interrompem a
+ * propagação do evento para não disparar ações do elemento pai.
+ */
 function CartItem({ item, onIncrease, onDecrease, onRemove, onCloseCart }: CartItemProps) {
   const productImage = `${import.meta.env.BASE_URL}${item.image.replace(/^\/+/, "")}`;
   const lastTapRef = useRef(0);

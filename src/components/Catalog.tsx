@@ -5,6 +5,20 @@ import type { Product } from "../Interfaces/product";
 import type { CatalogStatus } from "../types/catalog";
 import ProductCard from "./ProductCard";
 
+/**
+ * Nome do item: normalize
+ *
+ * Papel no projeto: Prepara textos para comparação na busca do catálogo.
+ *
+ * Funcionamento: Converte o texto para minúsculas em português, separa os
+ * caracteres acentuados e remove os diacríticos.
+ *
+ * Dependências e integrações: É utilizada pelo componente Catalog para
+ * comparar o termo pesquisado com os dados dos produtos.
+ *
+ * Observações: A normalização permite encontrar resultados mesmo quando a
+ * busca usa caixa ou acentuação diferente do cadastro.
+ */
 function normalize(value: string) {
   return value
     .toLocaleLowerCase("pt-BR")
@@ -12,6 +26,19 @@ function normalize(value: string) {
     .replace(/\p{Diacritic}/gu, "");
 }
 
+/**
+ * Nome do item: CatalogState
+ *
+ * Papel no projeto: Renderiza mensagens e ações para os estados do catálogo.
+ *
+ * Funcionamento: Mostra carregamento, erro com opção de tentativa novamente ou
+ * mensagem de lista vazia conforme o status e a existência de uma busca.
+ *
+ * Dependências e integrações: Recebe CatalogStateProps e é usado pelo Catalog
+ * quando não há produtos para renderizar.
+ *
+ * Observações: onRetry só é acionado no estado de erro.
+ */
 function CatalogState({ status, hasSearch, onRetry }: CatalogStateProps) {
   if (status === "loading") {
     return <p className="catalog-state">Abrindo a carta...</p>;
@@ -29,6 +56,21 @@ function CatalogState({ status, hasSearch, onRetry }: CatalogStateProps) {
   return <p className="catalog-state">{hasSearch ? "Nenhum rótulo corresponde à busca." : "A coleção está em atualização."}</p>;
 }
 
+/**
+ * Nome do item: Catalog
+ *
+ * Papel no projeto: Carrega, pesquisa e exibe a coleção de produtos da loja.
+ *
+ * Funcionamento: Busca os produtos no arquivo JSON, controla os estados de
+ * carregamento, erro e sucesso, normaliza a busca e filtra por nome, categoria
+ * e descrições. Também cria atalhos de busca pelas categorias encontradas.
+ *
+ * Dependências e integrações: Usa hooks do React, navegação do React Router,
+ * Product, CatalogStatus, CatalogState e ProductCard.
+ *
+ * Observações: AbortController cancela a requisição ao desmontar o componente;
+ * retryCount força uma nova tentativa de carregamento.
+ */
 function Catalog() {
   const [catalog, setCatalog] = useState<Product[]>([]);
   const [status, setStatus] = useState<CatalogStatus>("loading");

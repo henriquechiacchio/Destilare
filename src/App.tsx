@@ -6,6 +6,21 @@ import ProductDetailPage from "./components/ProductDetailPage";
 import Storefront from "./components/Storefront";
 import { CartProvider } from "./context/CartContext";
 
+/**
+ * Nome do item: AppRoutes
+ *
+ * Papel no projeto: Define a estrutura compartilhada e as rotas principais da
+ * aplicação Destilare.
+ *
+ * Funcionamento: Verifica redirecionamentos vindos do fallback 404, renderiza o
+ * Header, seleciona a página conforme a URL e mantém o rodapé compartilhado.
+ *
+ * Dependências e integrações: Usa React Router, Header, Storefront,
+ * ProductDetailPage e HowItWasMade.
+ *
+ * Observações: O parâmetro redirect só é aceito quando começa com "/", evitando
+ * que o fluxo navegue para destinos externos.
+ */
 function AppRoutes() {
   const location = useLocation();
   const redirect = new URLSearchParams(location.search).get("redirect");
@@ -34,6 +49,21 @@ function AppRoutes() {
   );
 }
 
+/**
+ * Nome do item: App
+ *
+ * Papel no projeto: É o componente raiz que organiza o estado global e o
+ * roteamento da aplicação.
+ *
+ * Funcionamento: Envolve as rotas com CartProvider, configura BrowserRouter
+ * com a base de publicação e cria o contêiner visual principal.
+ *
+ * Dependências e integrações: Usa CartProvider, BrowserRouter, AppRoutes e a
+ * variável BASE_URL fornecida pelo Vite.
+ *
+ * Observações: A ordem dos providers garante que as páginas e componentes
+ * consigam acessar o estado do carrinho durante a navegação.
+ */
 function App() {
   return (
     <CartProvider>

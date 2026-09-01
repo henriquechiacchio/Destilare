@@ -4,6 +4,22 @@ import { useCart } from "../context/useCart";
 import type { Product } from "../Interfaces/product";
 import ProductDetail from "./ProductDetail";
 
+/**
+ * Nome do item: ProductDetailPage
+ *
+ * Papel no projeto: Coordena a rota de detalhes e conecta o produto carregado
+ * ao componente visual ProductDetail.
+ *
+ * Funcionamento: Lê o id da URL, carrega o catálogo JSON, localiza o produto e
+ * renderiza estados de carregamento, erro ou detalhe. Também encaminha o
+ * retorno para a coleção e a adição ao carrinho.
+ *
+ * Dependências e integrações: Usa hooks do React, useParams e useNavigate do
+ * React Router, useCart, Product e ProductDetail.
+ *
+ * Observações: O estado isMounted evita atualizar o estado após a desmontagem
+ * da página durante o carregamento assíncrono.
+ */
 function ProductDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
