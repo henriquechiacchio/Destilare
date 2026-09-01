@@ -56,6 +56,11 @@ function Catalog() {
     return () => controller.abort();
   }, [retryCount]);
 
+  const categories = useMemo(
+    () => Array.from(new Set(catalog.map((product) => product.category).filter(Boolean))).sort((a, b) => a.localeCompare(b, "pt-BR")),
+    [catalog],
+  );
+
   const normalizedSearch = normalize(searchTerm.trim());
   const filteredProducts = useMemo(() => {
     if (!normalizedSearch) return catalog;
@@ -86,6 +91,22 @@ function Catalog() {
           {searchTerm && <button type="button" onClick={() => setSearchTerm("")} aria-label="Limpar busca">×</button>}
         </div>
         <p className="catalog__count">{status === "success" ? `${filteredProducts.length} ${filteredProducts.length === 1 ? "rótulo encontrado" : "rótulos encontrados"}` : ""}</p>
+
+        {categories.length > 0 && (
+          <div className="catalog__categories" aria-label="Categorias do catálogo">
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                className="catalog__category-button"
+                onClick={() => setSearchTerm(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        )}
+        
       </div>
       {status === "success" && filteredProducts.length > 0 ? (
         <div className="product-grid">

@@ -263,6 +263,33 @@ h2 {
   text-transform: uppercase;
 }
 
+.catalog__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  grid-column: 1 / -1;
+}
+
+.catalog__category-button {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.catalog__category-button:hover,
+.catalog__category-button:focus-visible {
+  border-color: var(--copper);
+  outline: none;
+}
+
 .search-field {
   display: flex;
   align-items: center;
