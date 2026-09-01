@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import CartDrawer from "./CartDrawer";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/useCart";
 
 function Header() {
   const logoPath = `${import.meta.env.BASE_URL}logo/logosfundo.webp`;

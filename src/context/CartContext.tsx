@@ -1,11 +1,10 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import type { CartContextValue, CartItem } from "../Interfaces/cart";
 import type { Product } from "../Interfaces/product";
+import { CartContext } from "./cart-context";
 
 const STORAGE_KEY = "destilare-cart";
-
-const CartContext = createContext<CartContextValue | null>(null);
 
 function readStoredCart(): CartItem[] {
   if (typeof window === "undefined") {
@@ -92,12 +91,3 @@ export function CartProvider({ children }: { children: ReactNode }) {
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
-export function useCart() {
-  const context = useContext(CartContext);
-
-  if (!context) {
-    throw new Error("useCart must be used within a CartProvider");
-  }
-
-  return context;
-}

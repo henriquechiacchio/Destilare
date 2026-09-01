@@ -1,6 +1,6 @@
 import type { CartDrawerProps } from "../Interfaces/cartDrawer";
 import CartItem from "./CartItem";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/useCart";
 
 const currencyFormatter = new Intl.NumberFormat("pt-BR", {
   style: "currency",
