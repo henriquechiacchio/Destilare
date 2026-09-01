@@ -6,7 +6,7 @@
     "description": "Um single malt macio, marcado por frutas secas e carvalho tostado.",
     "detailedDescription": "Reserva Carvalho nasceu para quem aprecia a elegância da maturação em carvalho. No nariz, apresenta notas de baunilha, frutos secos e um leve toque de especiarias doces; na boca, a textura é sedosa e equilibrada, com caramelo, madeira tostada e um final quente e persistente. É um whisky pensado para momentos de conversa longa e apreciação lenta.",
     "price": 289.9,
-    "image": "Imagens/ReservaDeCarvalho.jpg",
+    "image": "Imagens/ReservaDeCarvalho.webp",
     "ageStatement": "12 anos",
     "origin": "Highlands, Escócia",
     "tastingNotes": ["Baunilha", "Carvalho tostado", "Frutas secas"]
@@ -18,7 +18,7 @@
     "description": "Camadas de fumaça e salinidade equilibradas por um final de mel.",
     "detailedDescription": "Bruma Defumada é um peated com presença marcante, mas refinada: a turfa inicial recebe um contraponto salino e mineral que amplia a profundidade do whisky. A fumaça aparece com intensidade moderada, enquanto notas de mel, cítricos e mar profundo conferem um acabamento sofisticado e muito gastronômico. Ideal para quem gosta de whiskies com personalidade e textura envolvente.",
     "price": 349.9,
-    "image": "Imagens/BrumaDefumada.jpg",
+    "image": "Imagens/BrumaDefumada.webp",
     "ageStatement": "10 anos",
     "origin": "Islay, Escócia",
     "tastingNotes": ["Fumaça", "Sal marinho", "Mel"]
@@ -30,7 +30,7 @@
     "description": "Bourbon de milho doce com especiarias quentes e acabamento sedoso.",
     "detailedDescription": "Cobre do Sol combina a doçura do milho com uma maturação que acentua notas de caramelo, baunilha e especiarias quentes. Sua criação é marcada por um perfil acessível e acolhedor, com um corpo médio e um final sedoso que preserva um toque de noz-pecã. É um bourbon versátil, ideal para quem quer um whisky com calor agradável e equilíbrio constante.",
     "price": 219.9,
-    "image": "Imagens/CobreDoSol.jpg",
+    "image": "Imagens/CobreDoSol.webp",
     "ageStatement": "8 anos",
     "origin": "Kentucky, Estados Unidos",
     "tastingNotes": ["Caramelo", "Canela", "Noz-pecã"]
@@ -42,7 +42,7 @@
     "description": "Um blend elegante e acessível, feito para acompanhar longas conversas.",
     "detailedDescription": "Linha do Tempo reflete um blending cuidadoso, onde a suavidade das maltes e a estrutura dos grãos se harmonizam em um perfil versátil e convidativo. A primeira impressão é de pera madura e caramelo, seguida por um corpo sedoso com amêndoas e leve sensação de biscoito tostado. Um whisky universal, pensado para ser compartilhado em encontros descontraídos e celebrações simples.",
     "price": 169.9,
-    "image": "Imagens/LinhaDoTempo.jpg",
+    "image": "Imagens/LinhaDoTempo.webp",
     "ageStatement": "8 anos",
     "origin": "Speyside, Escócia",
     "tastingNotes": ["Pera madura", "Caramelo", "Amêndoas"]
@@ -54,7 +54,7 @@
     "description": "Maturação final em madeira de cerejeira para um perfil frutado e profundo.",
     "detailedDescription": "Barrica de Cerejeira conquista pelo contraste entre a riqueza da madeira e a complexidade do whisky. O acabamento em barris de cerejeira realça frutas vermelhas, cereja madura e um leve toque de cacau, enquanto o gengibre e a especiaria mantém a estrutura em equilíbrio. É um perfil mais intenso e sofisticado, com profundidade em boca e uma persistência calorosa bem marcante.",
     "price": 399.9,
-    "image": "Imagens/BarricaDeCerejeira.jpg",
+    "image": "Imagens/BarricaDeCerejeira.webp",
     "ageStatement": "14 anos",
     "origin": "Kyoto, Japão",
     "tastingNotes": ["Cereja", "Cacau", "Gengibre"]
@@ -66,7 +66,7 @@
     "description": "Leve, floral e luminoso: a porta de entrada para a nossa carta.",
     "detailedDescription": "Primeiro Brinde foi criado para abrir a conversa com leveza e alegria. Sua expressão floral leva a perfumado e delicado, com maçã fresca, biscoito e uma sensação de frescor que o torna acessível e elegante ao mesmo tempo. A textura é suave e guiada por notas de flores brancas, deixando uma finalização limpa e convidativa. Ideal para quem está iniciando a jornada pela carta Destilare.",
     "price": 129.9,
-    "image": "Imagens/ReservaDoMestre.jpg",
+    "image": "Imagens/ReservaDoMestre.webp",
     "ageStatement": "6 anos",
     "origin": "Lowlands, Escócia",
     "tastingNotes": ["Flores brancas", "Maçã", "Biscoito"]
@@ -78,7 +78,7 @@
     "description": "Single malt premium com equilíbrio perfeito entre fruta e especiarias.",
     "detailedDescription": "Harmonia Clássica apresenta um perfil elegante e extremamente bem construído, em que a fruta nativa se mistura a uma camada de especiarias de forma quase sinfônica. O início traz maçã verde, pera e leve frescor cítrico, enquanto a boca se torna mais complexa com cravo, gengibre e xarope de bordo. O resultado é um single malt clássico, profundo e refinado, perfeito para apreciação lenta e contemplativa.",
     "price": 329.9,
-    "image": "Imagens/HarmoniaClassica.jpg",
+    "image": "Imagens/HarmoniaClassica.webp",
     "ageStatement": "15 anos",
     "origin": "Speyside, Escócia",
     "tastingNotes": ["Maçã verde", "Cravo", "Xarope de bordo"]
@@ -90,7 +90,7 @@
     "description": "Peated intenso com notas complexas de turfa e um final prolongado.",
     "detailedDescription": "Turfeira Profunda é uma expressão intensa e profunda de Islay, marcada por turfa escura, alcatrão e um caráter mineral que domina a composição com muita presença. O paladar se abre com notas de chocolate amargo e um toque de fumaça persistente, criando uma estrutura rica e poderosa. Sua finalização longa e terrosa torna esse whisky ideal para quem busca uma experiência mais dramática e memorável.",
     "price": 379.9,
-    "image": "Imagens/TurfeiraProfunda.jpg",
+    "image": "Imagens/TurfeiraProfunda.webp",
     "ageStatement": "12 anos",
     "origin": "Islay, Escócia",
     "tastingNotes": ["Turfa escura", "Alcatrão", "Chocolate amargo"]
@@ -102,7 +102,7 @@
     "description": "Bourbon clássico com notas robustas de carvalho e caramelo envolvente.",
     "detailedDescription": "Coroa Americana se destaca por seu caráter robusto, acentuado por madeira de carvalho bem integrada ao perfil do whisky. A primeira percepção é de caramelo rico e baunilha, seguida de tabaco suave, pimenta negra e uma textura que ganha corpo aos poucos. É um bourbon clássico, cheio de presença, mas com um final caloroso e prazeroso que reforça a tradição do estilo.",
     "price": 259.9,
-    "image": "Imagens/CoroaAmericana.jpg",
+    "image": "Imagens/CoroaAmericana.webp",
     "ageStatement": "10 anos",
     "origin": "Tennessee, Estados Unidos",
     "tastingNotes": ["Caramelo rico", "Tabaco suave", "Pimenta negra"]
@@ -114,7 +114,7 @@
     "description": "Blend harmonioso e versátil, ideal para comemorar momentos especiais.",
     "detailedDescription": "Blenda Primavera oferece um equilíbrio delicado entre fruta, flor e madeira, criando um perfil alegre e convidativo desde o primeiro gole. As notas de pêssego e mel floral se mesclam com baunilha suave e um toque leve de especiaria, resultando em um blend harmonioso e muito versátil. É uma escolha ideal para celebrações, brindes e momentos em que a conversa precisa de um whisky leve, mas memorável.",
     "price": 179.9,
-    "image": "Imagens/BlendaPrimavera.jpg",
+    "image": "Imagens/BlendaPrimavera.webp",
     "ageStatement": "7 anos",
     "origin": "Highlands, Escócia",
     "tastingNotes": ["Pêssego", "Mel floral", "Baunilha suave"]
@@ -126,7 +126,7 @@
     "description": "Acabamento em barris de Porto para um perfil doce e sofisticado.",
     "detailedDescription": "Edge Porto é um whisky de personalidade marcante, com acabamento em barris de Porto que acentua a riqueza frutada e a elegância da madeira. O aroma abre com uvas pretas, vinho tinto e um toque de especiarias orientais, enquanto a boca oferece uma amplitude agradável e doce, sem perder a estrutura. O final é envolvente e sofisticado, com notas de fruta escura e um toque de especiaria longa e reflexiva.",
     "price": 419.9,
-    "image": "Imagens/EdgePorto.jpg",
+    "image": "Imagens/EdgePorto.webp",
     "ageStatement": "16 anos",
     "origin": "Aberdeenshire, Escócia",
     "tastingNotes": ["Uva preta", "Vinho tinto", "Especiarias orientais"]
@@ -138,7 +138,7 @@
     "description": "Single malt elegante com maturação em carvalho dourado francês.",
     "detailedDescription": "Essência Dourada traz a sofisticação da maturação em carvalho francês com um perfil exuberante e bem desenhado. Há gengibre cristalizado, frutas tropicais e nozes tostadas em uma composição que conquista aos poucos, com uma textura sedosa e um final longo e aromático. É um single malt que combina luxo discreto com energia vibrante, ideal para momentos de celebração e degustação refinada.",
     "price": 359.9,
-    "image": "Imagens/EssenciaDourada.jpg",
+    "image": "Imagens/EssenciaDourada.webp",
     "ageStatement": "13 anos",
     "origin": "Campbeltown, Escócia",
     "tastingNotes": ["Gengibre cristalizado", "Frutas tropicais", "Nozes tostadas"]
