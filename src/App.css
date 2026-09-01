@@ -11,11 +11,18 @@
   margin-inline: auto;
 }
 
+.storefront {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  flex: 1;
+}
+
 .site-header,
 .site-footer {
   width: 100%;
   background: #efe4d5;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 12px solid var(--copper);
 }
 
 .site-header__inner,
@@ -29,23 +36,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 28px 0;
-}
-
-.site-header nav {
-  display: flex;
-  justify-content: flex-end;
-  gap: 28px;
-}
-
-@media (max-width: 640px) {
-  .site-header__inner,
-  .site-footer__inner {
-    width: min(100% - 24px, 1180px);
-  }
-
-  .site-header__inner {
-    padding: 20px 0;
-  }
 }
 
 .brand,
@@ -75,6 +65,7 @@
 
 .site-header nav {
   display: flex;
+  justify-content: flex-end;
   gap: 28px;
 }
 
@@ -105,16 +96,28 @@
   transform: scaleX(1);
 }
 
-.storefront {
-  flex: 1;
+.storefront__hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 620px);
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+  min-height: 620px;
+  margin: 0;
+  padding: 56px 32px 72px;
+  overflow: hidden;
+  border-radius: 0;
+  border-bottom: 1px solid var(--ink);
+  background:
+    linear-gradient(90deg, rgba(248, 245, 239) 20%, rgba(248, 245, 239, 0.76) 30%, rgba(255, 255, 255, 0.22) 60%, rgba(255, 255, 255, 0.08) 100%),
+    url("/BannerStoreFront.png") center center / cover no-repeat;
 }
 
-.storefront__hero {
-  display: grid;
-  min-height: 520px;
-  align-content: center;
-  max-width: 760px;
-  padding: 72px 0 96px;
+.storefront__content {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
 }
 
 .eyebrow {
@@ -145,7 +148,7 @@ h1 {
 .how-it-was-made__intro {
   max-width: 530px;
   margin: 34px 0 30px;
-  color: var(--muted);
+  color: var(--ink);
   font-size: 1.3rem;
   line-height: 1.6;
 }
@@ -181,19 +184,13 @@ h1 {
 
 .catalog {
   padding: 62px 0 90px;
-  border-top: 1px solid var(--line);
-}
-
-h2 {
-  max-width: 580px;
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  line-height: 1.03;
 }
 
 .catalog__intro {
   max-width: 720px;
   margin-inline: auto;
   text-align: center;
+  
 }
 
 .catalog__intro > p:last-child {
@@ -209,12 +206,18 @@ h2 {
   text-align: center;
 }
 
+h2 {
+  max-width: 580px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.03;
+}
+
 .catalog__toolbar {
   display: grid;
   grid-template-columns: 1fr minmax(280px, 410px) auto;
   gap: 20px;
   align-items: end;
-  margin: 58px 0 26px;
+  margin: 58px 30px 26px;
   padding-top: 22px;
   border-top: 1px solid var(--line);
 }
@@ -446,18 +449,13 @@ h2 {
 }
 
 @media (max-width: 640px) {
-  .site-header,
-  .site-footer {
-    width: 100%;
+  .site-header__inner {
+    padding: 20px 0;
   }
 
   .storefront,
   .how-it-was-made {
     width: min(100% - 24px, 1180px);
-  }
-
-  .site-header {
-    padding: 20px 0;
   }
 
   .site-header nav {
