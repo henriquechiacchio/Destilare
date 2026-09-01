@@ -7,29 +7,34 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies and build output
 node_modules/
 dist/
 dist-ssr/
 coverage/
 .cache/
 .vite/
-*.local
+.parcel-cache/
+.npm/
 *.tsbuildinfo
+*.local
 
 # Deployment and hosting tool state
 .vercel/
 .netlify/
+.github/keys/
 
 # Environment files and secrets
 .env
 .env.*
 !.env.example
+*.pem
 
-# Editor directories and files
+# Editor and IDE files
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
+*.code-workspace
 *.suo
 *.ntvs*
 *.njsproj
@@ -37,7 +42,10 @@ coverage/
 *.sw?
 
 # OS-generated files
+.DS_Store
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+*/PlanoVideo.md
 
