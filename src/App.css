@@ -850,15 +850,17 @@ h2 {
   }
 
   .site-header__inner {
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
     gap: 12px;
     padding: 20px 0;
   }
 
   .brand {
-    width: 100%;
-    justify-content: center;
+    grid-column: 2;
+    justify-self: center;
+    width: auto;
     font-size: 1.3rem;
   }
 
@@ -873,10 +875,10 @@ h2 {
   }
 
   .site-header nav {
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    grid-column: 1;
+    justify-content: flex-start;
+    gap: 12px;
+    width: auto;
   }
 
   .site-header nav a,
@@ -887,7 +889,10 @@ h2 {
   }
 
   .header-cart {
-    padding-top: 8px;
+    grid-column: 3;
+    justify-self: end;
+    padding-top: 0;
+    margin-left: auto;
   }
 
   .storefront__hero {

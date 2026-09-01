@@ -16,6 +16,7 @@ function Header() {
             <img className="brand__logo" src={logoPath} alt="Logo Destilare" />
             <span>Destilare</span>
           </Link>
+
           <nav aria-label="Navegação principal">
             <NavLink className={({ isActive }) => isActive ? "is-active" : ""} to="/" end>
               Loja
@@ -23,11 +24,12 @@ function Header() {
             <NavLink className={({ isActive }) => isActive ? "is-active" : ""} to="/como-fiz">
               Como fiz
             </NavLink>
-            <button type="button" className="header-cart" onClick={() => setIsCartOpen(true)} aria-label="Abrir carrinho">
-              Carrinho
-              {itemCount > 0 ? <span className="header-cart__count">{itemCount}</span> : null}
-            </button>
           </nav>
+
+          <button type="button" className="header-cart" onClick={() => setIsCartOpen(true)} aria-label="Abrir carrinho">
+            Carrinho
+            {itemCount > 0 ? <span className="header-cart__count">{itemCount}</span> : null}
+          </button>
         </div>
       </header>
 
