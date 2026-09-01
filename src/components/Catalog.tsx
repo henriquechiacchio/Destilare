@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import type { CatalogStateProps } from "../Interfaces/catalog";
 import type { Product } from "../Interfaces/product";
 import type { CatalogStatus } from "../types/catalog";
 import ProductCard from "./ProductCard";
-import ProductDetail from "./ProductDetail";
 
 function normalize(value: string) {
   return value
@@ -34,7 +34,7 @@ function Catalog() {
   const [status, setStatus] = useState<CatalogStatus>("loading");
   const [searchTerm, setSearchTerm] = useState("");
   const [retryCount, setRetryCount] = useState(0);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const controller = new AbortController();
@@ -57,26 +57,20 @@ function Catalog() {
   }, [retryCount]);
 
   const normalizedSearch = normalize(searchTerm.trim());
-  const filteredProducts = catalog.filter((product) => {
-    if (!normalizedSearch) return true;
+  const filteredProducts = useMemo(() => {
+    if (!normalizedSearch) return catalog;
 
-    const searchableTerms = [
-      product.name,
-      product.category,
-      product.description,
-      product.detailedDescription ?? "",
-    ];
+    return catalog.filter((product) => {
+      const searchableTerms = [
+        product.name,
+        product.category,
+        product.description,
+        product.detailedDescription ?? "",
+      ];
 
-    return searchableTerms.some((value) => normalize(value).includes(normalizedSearch));
-  });
-
-  if (selectedProduct) {
-    return (
-      <section className="catalog" id="catalogo" aria-labelledby="collection-title">
-        <ProductDetail product={selectedProduct} onBack={() => setSelectedProduct(null)} />
-      </section>
-    );
-  }
+      return searchableTerms.some((value) => normalize(value).includes(normalizedSearch));
+    });
+  }, [catalog, normalizedSearch]);
 
   return (
     <section className="catalog" id="catalogo" aria-labelledby="collection-title">
@@ -95,7 +89,7 @@ function Catalog() {
       </div>
       {status === "success" && filteredProducts.length > 0 ? (
         <div className="product-grid">
-          {filteredProducts.map((product) => <ProductCard key={product.id} product={product} onSelect={setSelectedProduct} />)}
+          {filteredProducts.map((product) => <ProductCard key={product.id} product={product} onSelect={() => navigate(`/produto/${product.id}`)} />)}
         </div>
       ) : (
         <CatalogState status={status} hasSearch={Boolean(normalizedSearch)} onRetry={() => setRetryCount((count) => count + 1)} />

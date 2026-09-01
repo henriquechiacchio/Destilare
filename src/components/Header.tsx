@@ -1,11 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 
 function Header() {
+  const logoPath = `${import.meta.env.BASE_URL}logosfundo.png`;
+
   return (
     <header className="site-header">
       <div className="site-header__inner">
         <Link className="brand" to="/" aria-label="Destilare, início">
-          <img className="brand__logo" src="./logosfundo.png" alt="Logo Destilare" />
+          <img className="brand__logo" src={logoPath} alt="Logo Destilare" />
           <span>Destilare</span>
         </Link>
         <nav aria-label="Navegação principal">

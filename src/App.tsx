@@ -1,7 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
-import HowItWasMade from "./components/HowItWasMade";
 import Header from "./components/Header";
+import HowItWasMade from "./components/HowItWasMade";
+import ProductDetailPage from "./components/ProductDetailPage";
 import Storefront from "./components/Storefront";
 
 function AppRoutes() {
@@ -18,6 +19,7 @@ function AppRoutes() {
 
       <Routes>
         <Route path="/" element={<Storefront />} />
+        <Route path="/produto/:id" element={<ProductDetailPage />} />
         <Route path="/como-fiz" element={<HowItWasMade />} />
       </Routes>
 

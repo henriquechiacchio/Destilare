@@ -6,6 +6,8 @@ const currencyFormatter = new Intl.NumberFormat("pt-BR", {
 });
 
 function ProductCard({ product, onSelect }: ProductCardProps) {
+  const productImage = `${import.meta.env.BASE_URL}${product.image.replace(/^\/+/, "")}`;
+
   return (
     <article className="product-card" onClick={() => onSelect?.(product)} onKeyDown={(event) => {
       if (event.key === "Enter" || event.key === " ") {
@@ -13,7 +15,7 @@ function ProductCard({ product, onSelect }: ProductCardProps) {
         onSelect?.(product);
       }
     }} tabIndex={0} role="button" aria-label={`Abrir detalhes do produto ${product.name}`}>
-      <img className="product-card__image" src={product.image} alt={`${product.name}, garrafa de whisky`} />
+      <img className="product-card__image" src={productImage} alt={`${product.name}, garrafa de whisky`} />
       <div className="product-card__content">
         <div className="product-card__heading">
           <div>

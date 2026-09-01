@@ -6,6 +6,8 @@ const currencyFormatter = new Intl.NumberFormat("pt-BR", {
 });
 
 function ProductDetail({ product, onBack }: ProductDetailProps) {
+  const productImage = `${import.meta.env.BASE_URL}${product.image.replace(/^\/+/, "")}`;
+
   return (
     <div className="product-detail">
       <button type="button" className="product-detail__back" onClick={onBack}>
@@ -14,7 +16,7 @@ function ProductDetail({ product, onBack }: ProductDetailProps) {
 
       <div className="product-detail__layout">
         <div className="product-detail__media">
-          <img src={product.image} alt={`${product.name}, garrafa de whisky`} />
+          <img src={productImage} alt={`${product.name}, garrafa de whisky`} />
         </div>
 
         <div className="product-detail__content">
