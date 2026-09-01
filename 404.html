@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirecionando...</title>
     <script>
+      /**
+       * Nome do item: fallback de rota do GitHub Pages
+       *
+       * Papel no projeto: Mantém as rotas da aplicação React funcionando
+       * quando uma URL interna é acessada diretamente no GitHub Pages.
+       *
+       * Funcionamento: Remove a base do repositório do caminho atual, preserva
+       * a rota relativa e redireciona para a página inicial com o caminho
+       * codificado no parâmetro redirect.
+       *
+       * Dependências e integrações: Usa a API de localização do navegador e se
+       * integra ao tratamento de redirect definido no App.tsx.
+       *
+       * Observações: repoBase deve acompanhar o nome do repositório publicado;
+       * o caminho é codificado para evitar problemas com caracteres especiais.
+       */
       (function () {
         const repoBase = "/Destilare";
         const pathname = window.location.pathname;
