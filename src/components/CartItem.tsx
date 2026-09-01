@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import type { CartItem as CartItemType } from "../Interfaces/cart";
 
@@ -16,6 +17,17 @@ interface CartItemProps {
 
 function CartItem({ item, onIncrease, onDecrease, onRemove, onCloseCart }: CartItemProps) {
   const productImage = `${import.meta.env.BASE_URL}${item.image.replace(/^\/+/, "")}`;
+  const lastTapRef = useRef(0);
+
+  const handleQuickAction = (callback: () => void) => {
+    const now = Date.now();
+    if (now - lastTapRef.current < 180) {
+      return;
+    }
+
+    lastTapRef.current = now;
+    callback();
+  };
 
   return (
     <li className="cart-item">
@@ -41,11 +53,27 @@ function CartItem({ item, onIncrease, onDecrease, onRemove, onCloseCart }: CartI
 
         <div className="cart-item__footer">
           <div className="cart-item__controls" aria-label={`Quantidade de ${item.name}`}>
-            <button type="button" onClick={() => onDecrease(item.id)} aria-label={`Diminuir quantidade de ${item.name}`}>
+            <button
+              type="button"
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                handleQuickAction(() => onDecrease(item.id));
+              }}
+              aria-label={`Diminuir quantidade de ${item.name}`}
+            >
               −
             </button>
             <span>{item.quantity}</span>
-            <button type="button" onClick={() => onIncrease(item.id)} aria-label={`Aumentar quantidade de ${item.name}`}>
+            <button
+              type="button"
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                handleQuickAction(() => onIncrease(item.id));
+              }}
+              aria-label={`Aumentar quantidade de ${item.name}`}
+            >
               +
             </button>
           </div>

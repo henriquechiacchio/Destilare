@@ -70,7 +70,7 @@ function ProductDetailPage() {
       <ProductDetail
         product={product}
         onBack={() => navigate("/")}
-        onAddToCart={(selectedProduct) => addItem(selectedProduct)}
+        onAddToCart={(selectedProduct, quantity) => addItem(selectedProduct, quantity)}
       />
     </section>
   );
