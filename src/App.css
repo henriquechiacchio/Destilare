@@ -111,7 +111,7 @@
   border-bottom: 1px solid var(--ink);
   background:
     linear-gradient(90deg, rgba(248, 245, 239) 20%, rgba(248, 245, 239, 0.76) 30%, rgba(255, 255, 255, 0.22) 60%, rgba(255, 255, 255, 0.08) 100%),
-    url("/BannerStoreFront.png") center center / cover no-repeat;
+    var(--hero-banner) center center / cover no-repeat;
 }
 
 .storefront__content {
@@ -608,7 +608,7 @@ h2 {
     place-items: center;
     min-height: 520px;
     padding: 10px;
-    background: url("/BannerStoreFront.png") center top / contain no-repeat;
+    background: var(--hero-banner) center top / contain no-repeat;
   }
 
   .storefront__content {

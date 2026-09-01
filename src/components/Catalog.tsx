@@ -42,7 +42,7 @@ function Catalog() {
     async function loadCatalog() {
       setStatus("loading");
       try {
-        const response = await fetch(`${import.meta.env.BASE_URL}products.json`, { signal: controller.signal });
+        const response = await fetch(`${import.meta.env.BASE_URL}data/products.json`, { signal: controller.signal });
         if (!response.ok) throw new Error("Falha ao carregar o catálogo");
         const products: Product[] = await response.json();
         setCatalog(products);

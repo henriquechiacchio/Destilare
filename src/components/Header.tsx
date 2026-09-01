@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 
 function Header() {
-  const logoPath = `${import.meta.env.BASE_URL}logosfundo.png`;
+  const logoPath = `${import.meta.env.BASE_URL}logo/logosfundo.webp`;
 
   return (
     <header className="site-header">

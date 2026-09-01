@@ -16,7 +16,7 @@ function ProductDetailPage() {
       setStatus("loading");
 
       try {
-        const response = await fetch(`${import.meta.env.BASE_URL}products.json`);
+        const response = await fetch(`${import.meta.env.BASE_URL}data/products.json`);
         if (!response.ok) throw new Error("Falha ao carregar o catálogo");
 
         const products: Product[] = await response.json();
