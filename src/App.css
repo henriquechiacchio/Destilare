@@ -589,6 +589,7 @@ h2 {
 }
 
 .product-detail__quantity-controls input {
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 
