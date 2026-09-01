@@ -64,5 +64,71 @@
     "ageStatement": "6 anos",
     "origin": "Lowlands, Escócia",
     "tastingNotes": ["Flores brancas", "Maçã", "Biscoito"]
+  },
+  {
+    "id": "destilare-harmonia-classica",
+    "name": "Harmonia Clássica",
+    "category": "Single Malt",
+    "description": "Single malt premium com equilíbrio perfeito entre fruta e especiarias.",
+    "price": 329.9,
+    "image": "Imagens/HarmoniaClassica.jpg",
+    "ageStatement": "15 anos",
+    "origin": "Speyside, Escócia",
+    "tastingNotes": ["Maçã verde", "Cravo", "Xarope de bordo"]
+  },
+  {
+    "id": "destilare-turfeira-profunda",
+    "name": "Turfeira Profunda",
+    "category": "Peated",
+    "description": "Peated intenso com notas complexas de turfa e um final prolongado.",
+    "price": 379.9,
+    "image": "Imagens/TurfeiraProfunda.jpg",
+    "ageStatement": "12 anos",
+    "origin": "Islay, Escócia",
+    "tastingNotes": ["Turfa escura", "Alcatrão", "Chocolate amargo"]
+  },
+  {
+    "id": "destilare-coroa-americana",
+    "name": "Coroa Americana",
+    "category": "Bourbon",
+    "description": "Bourbon clássico com notas robustas de carvalho e caramelo envolvente.",
+    "price": 259.9,
+    "image": "Imagens/CoroaAmericana.jpg",
+    "ageStatement": "10 anos",
+    "origin": "Tennessee, Estados Unidos",
+    "tastingNotes": ["Caramelo rico", "Tabaco suave", "Pimenta negra"]
+  },
+  {
+    "id": "destilare-blenda-primavera",
+    "name": "Blenda Primavera",
+    "category": "Blended",
+    "description": "Blend harmonioso e versátil, ideal para comemorar momentos especiais.",
+    "price": 179.9,
+    "image": "Imagens/BlendaPrimavera.jpg",
+    "ageStatement": "7 anos",
+    "origin": "Highlands, Escócia",
+    "tastingNotes": ["Pêssego", "Mel floral", "Baunilha suave"]
+  },
+  {
+    "id": "destilare-edge-porto",
+    "name": "Edge Porto",
+    "category": "Finish especial",
+    "description": "Acabamento em barris de Porto para um perfil doce e sofisticado.",
+    "price": 419.9,
+    "image": "Imagens/EdgePorto.jpg",
+    "ageStatement": "16 anos",
+    "origin": "Aberdeenshire, Escócia",
+    "tastingNotes": ["Uva preta", "Vinho tinto", "Especiarias orientais"]
+  },
+  {
+    "id": "destilare-essencia-dourada",
+    "name": "Essência Dourada",
+    "category": "Single Malt",
+    "description": "Single malt elegante com maturação em carvalho dourado francês.",
+    "price": 359.9,
+    "image": "Imagens/EssenciaDourada.jpg",
+    "ageStatement": "13 anos",
+    "origin": "Campbeltown, Escócia",
+    "tastingNotes": ["Gengibre cristalizado", "Frutas tropicais", "Nozes tostadas"]
   }
 ]
