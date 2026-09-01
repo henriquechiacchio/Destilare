@@ -4,20 +4,29 @@ Destilare é uma vitrine premium de whiskys criada como projeto de front-end est
 
 ## Estado atual do projeto
 
-O projeto já está em estado funcional e publicado. Atualmente, a aplicação conta com:
+✅ **Status: COMPLETO E PUBLICADO**
 
-- front-end em React 19 com TypeScript;
-- navegação com React Router DOM em duas rotas principais: `/` e `/como-fiz`;
-- identidade visual editorial inspirada em madeira, cobre e papel;
-- catálogo dinâmico carregado a partir de `public/products.json` via `fetch`;
-- busca por nome, categoria e descrição com normalização de acentos e caixa;
-- controle de estados de carregamento, erro e catálogo vazio;
-- visual responsivo para desktop e mobile;
-- fallback para rotas no GitHub Pages com `public/404.html`;
-- publicação no GitHub Pages com o build gerado por Vite;
-- assets locais em `public/Imagens` e logo em `public/` para evitar dependência de URLs externas.
+O projeto atende **100% dos requisitos obrigatórios** do desafio "Minha Loja no Ar" do Bootcamp CompassUOL, com implementação de bônus significativos:
 
-Este estado reflete a implementação final e não uma versão em desenvolvimento incompleta.
+### Funcionalidades Principais
+- front-end em React 19 com TypeScript (tipagem completa, sem `any`);
+- navegação com React Router DOM em **três rotas**: `/` (vitrine), `/como-fiz` (explicativa) e `/produto/:id` (detalhe do produto);
+- identidade visual premium editorial com paleta em bege, cobre, marrom e madeira;
+- **catálogo dinâmico com 8 whiskys** carregado de `public/data/products.json` via `fetch`;
+- **busca avançada** por nome, categoria e descrição com normalização de acentos e caixa (português);
+- **página de detalhe do produto** com todas as informações: preço, origem, idade, notas de degustação e descrição detalhada;
+- controle completo de estados: carregamento, erro, catálogo vazio e sem resultados;
+- visual responsivo para desktop, tablet e mobile (até 320px);
+- fallback inteligente para rotas em GitHub Pages com `public/404.html`;
+- publicação ativa em GitHub Pages com `gh-pages`;
+- assets locais otimizados (formato `.webp`) sem dependência de URLs externas.
+
+### Qualidade Técnica
+- Tipagem TypeScript em 100% do código (interfaces, types, componentes);
+- Componentes reutilizáveis com separação clara de responsabilidades;
+- Lint passando com `oxlint`;
+- Build otimizado pelo Vite com suporte a subdiretório de repositório;
+- Padrão de SPA com navegação fluida (sem recarregamentos).
 
 ## Tecnologias utilizadas
 
@@ -34,82 +43,123 @@ Este estado reflete a implementação final e não uma versão em desenvolviment
 
 ```text
 Destilare/
-├── .git/
-├── .gitignore
-├── .oxlintrc.json
-├── dist/                     # Build de produção gerado pelo Vite
-├── node_modules/             # Dependências instaladas
-├── package-lock.json
-├── package.json              # Scripts e dependências do projeto
-├── index.html                # HTML base do Vite
-├── tsconfig.json             # Configuração base do TypeScript
-├── tsconfig.app.json         # Configuração do app
-├── tsconfig.node.json        # Configuração do Vite
-├── vite.config.ts            # Base do app para GitHub Pages
-├── README.md                 # Documentação principal
-├── public/
-│   ├── 404.html              # Fallback de rotas para GitHub Pages
-│   ├── Imagens/              # Imagens locais dos produtos
-│   ├── products.json         # Catálogo de whiskys em JSON
-│   ├── logofundo.png         # Logo da marca
-│   ├── logosfundo.png        # Variante de logo
-├── src/
-│   ├── App.css               # Estilos gerais do projeto
-│   ├── App.tsx               # Layout e rotas principais
-│   ├── index.css             # Reset e tokens visuais
-│   ├── main.tsx              # Entrada da aplicação
-│   ├── components/
-│   │   ├── Catalog.tsx       # Busca, listagem e estados do catálogo
-│   │   ├── Header.tsx        # Cabeçalho e navegação
-│   │   ├── HowItWasMade.tsx  # Página explicativa
-│   │   ├── ProductCard.tsx   # Card individual de produto
-│   │   └── Storefront.tsx    # Hero e vitrine inicial
-│   ├── Interfaces/
-│   │   ├── catalog.ts        # Props do catálogo
-│   │   └── product.ts        # Contrato Product
-│   └── types/
-│       └── catalog.ts        # Tipo do status do catálogo
-├── planejamento/
-│   ├── ContextoDestilare.md  # Visão consolidada do projeto
-│   ├── Geracao-Imagens.md    # Referência visual da coleção
-│   ├── Imagens/              # Arquivos de imagem de apoio
-└── dist/                     # Build final de produção
+├── 📁 .git/                      # Histórico de commits
+├── 📁 dist/                      # Build de produção (Vite)
+├── 📁 node_modules/              # Dependências
+├── 📁 public/
+│   ├── 📄 404.html               # Fallback SPA para GitHub Pages
+│   ├── 📁 data/
+│   │   └── 📄 products.json      # Catálogo com 8 whiskys
+│   ├── 📁 Imagens/               # Imagens otimizadas (.webp)
+│   └── 📁 logo/                  # Logos da marca
+├── 📁 src/
+│   ├── 📄 App.tsx                # Layout, rotas (/, /como-fiz, /produto/:id)
+│   ├── 📄 App.css                # Estilos globais (responsivo)
+│   ├── 📄 index.css              # Reset CSS e tokens visuais
+│   ├── 📄 main.tsx               # Entrada da aplicação
+│   ├── 📁 components/
+│   │   ├── 📄 Storefront.tsx     # Hero e vitrine inicial
+│   │   ├── 📄 Header.tsx         # Navegação principal
+│   │   ├── 📄 Catalog.tsx        # Busca, listagem e estados
+│   │   ├── 📄 ProductCard.tsx    # Card individual reutilizável
+│   │   ├── 📄 ProductDetailPage.tsx  # Wrapper da rota /produto/:id
+│   │   ├── 📄 ProductDetail.tsx  # Conteúdo de detalhe
+│   │   └── 📄 HowItWasMade.tsx   # Página explicativa do projeto
+│   ├── 📁 Interfaces/
+│   │   ├── 📄 catalog.ts         # Props do catálogo
+│   │   └── 📄 product.ts         # Interface Product
+│   └── 📁 types/
+│       └── 📄 catalog.ts         # Type CatalogStatus
+├── 📁 planejamento/
+│   ├── 📄 Analise-Projeto.md     # Análise vs. requisitos do desafio
+│   ├── 📄 ContextoDestilare.md   # Visão consolidada
+│   ├── 📄 Plano-Implementacao-Funcionalidades.md  # Roadmap com 3 fases
+│   ├── 📄 Geracao-Imagens.md     # Referência visual
+│   └── 📄 PlanoVideo.md          # Guia para vídeo
+├── 📄 package.json               # Dependências e scripts
+├── 📄 vite.config.ts             # Configuração de build
+├── 📄 tsconfig.json              # Config base TypeScript
+├── 📄 tsconfig.app.json          # Config app
+├── 📄 tsconfig.node.json         # Config Vite
+├── 📄 index.html                 # HTML base
+├── 📄 README.md                  # Documentação (este arquivo)
+└── 📄 .gitignore, .oxlintrc.json # Configurações
 ```
 
 ## Como a aplicação funciona
 
-### 1. Vitrine e navegação
-`src/App.tsx` monta a estrutura da aplicação com `BrowserRouter` e define duas rotas:
+### 1. Vitrine, navegação e rotas
+`src/App.tsx` monta a estrutura da aplicação com `BrowserRouter` e define três rotas:
 
-- `/` → vitrine principal
-- `/como-fiz` → página de explicação do projeto
+- `/` → vitrine principal com hero + catálogo com busca
+- `/como-fiz` → página explicativa do projeto e decisões técnicas
+- `/produto/:id` → detalhe completo de cada whisky (bônus implementado)
 
-A navegação é feita com `Link` e `NavLink` do React Router DOM, mantendo a experiência de SPA.
+A navegação é feita com `Link` e `NavLink` do React Router DOM, mantendo a experiência fluida de SPA (sem recarregamentos).
 
-### 2. Catálogo externo
-O catálogo não fica embutido em JSX. Ele é carregado do arquivo `public/products.json` usando:
+### 2. Catálogo externo e estrutura de dados
+O catálogo não fica embutido em JSX. Ele é carregado do arquivo `public/data/products.json` usando:
 
 ```ts
-fetch(`${import.meta.env.BASE_URL}products.json`)
+fetch(`${import.meta.env.BASE_URL}data/products.json`)
 ```
 
-Esse padrão é importante porque a aplicação pode ser publicada dentro de um subdiretório no GitHub Pages sem quebrar os caminhos.
+Cada produto possui a estrutura:
+```ts
+interface Product {
+  id: string;                    // ID único para rota /produto/:id
+  name: string;                  // Nome do whisky
+  category: string;              // Tipo (Single Malt, Bourbon, etc.)
+  description: string;           // Breve descrição
+  detailedDescription?: string;  // Descrição estendida para detalhe
+  price: number;                 // Preço em BRL
+  image: string;                 // Caminho local (ex: Imagens/ReservaDeCarvalho.webp)
+  ageStatement: string;          // Idade (ex: "12 anos")
+  origin: string;                // Origem (ex: "Highlands, Escócia")
+  tastingNotes: string[];        // Notas de degustação
+}
+```
 
-### 3. Busca e estados
-`src/components/Catalog.tsx` controla:
+Usar `import.meta.env.BASE_URL` é essencial porque a aplicação pode ser publicada dentro de um subdiretório no GitHub Pages (`/Destilare/`) sem quebrar os caminhos relativos.
 
-- termo de busca;
-- produtos filtrados;
-- loading;
-- erro;
-- catálogo vazio;
-- busca sem resultados;
-- contador de itens encontrados.
+### 3. Busca, filtro e estados
+`src/components/Catalog.tsx` implementa um sistema de busca robusto:
 
-A busca normaliza caixa e acentos para funcionar bem em português.
+**Funcionalidades:**
+- Busca em tempo real nos campos: nome, categoria, descrição e descrição detalhada
+- Normalização de acentos e caixa usando `toLocaleLowerCase("pt-BR")` + `normalize("NFD")`
+- Filtragem com `useMemo` para performance
+- Botão "×" para limpar busca rapidamente
+- Contador dinâmico de resultados (ex: "8 rótulos encontrados")
 
-### 4. Design e marca
-A identidade visual foi pensada como premium e editorial, com paleta em bege, marrom, cobre e carvão. A tipografia usa `Playfair Display` para títulos e `DM Mono` para detalhes de apoio.
+**Estados implementados:**
+- `loading` → "Abrindo a carta..."
+- `success` → Exibe produtos filtrados
+- `error` → "Não foi possível carregar a coleção agora." + botão "Tentar novamente"
+- Sem resultados → "Nenhum rótulo corresponde à busca."
+- Catálogo vazio → "A coleção está em atualização."
+
+Todo estado é acessível via `useNavigate()` para navegação direta ao detalhe do produto.
+
+### 4. Página de detalhe do produto
+`src/components/ProductDetailPage.tsx` e `ProductDetail.tsx` implementam a rota `/produto/:id`:
+
+- Extrai o ID da URL com `useParams()`
+- Busca o produto no catálogo carregado
+- Exibe layout de dois blocos: imagem grande + conteúdo
+- Mostra todas as informações: nome, preço, origem, idade, descrição detalhada, notas de degustação
+- Botão "Voltar à coleção" para retornar
+- Tratamento de erro se produto não existir
+- Totalmente responsivo
+
+Isso permite URLs diretas e compartilháveis (ex: `site.com/Destilare/produto/destilare-reserva-carvalho`).
+
+### 5. Design e marca
+A identidade visual foi pensada como **premium e editorial**, com paleta em bege, marrom, cobre e carvão. A tipografia usa:
+- **Playfair Display** (Google Fonts) para títulos e hierarquia
+- **DM Mono** (Google Fonts) para detalhes técnicos e preços
+
+O design busca transmitir sofisticação, tempo e apreciação lenta — alinhado com a narrativa de um whisky de qualidade.
 
 ## Como executar localmente
 
@@ -164,10 +214,12 @@ Essa abordagem publica o conteúdo de `dist/` na branch do Pages e torna o site 
 
 ## Observações importantes de deploy
 
-- A rota `/como-fiz` só funciona corretamente quando o fallback do `404.html` está ativo.
-- O `products.json` deve continuar em `public/` e usar caminhos relativos locais, como `Imagens/ReservaDeCarvalho.jpg`.
-- O site é estático e não depende de backend; por isso a solução de fallback é necessária.
-- O conteúdo e os produtos ficam facilmente editáveis em `public/products.json` sem necessidade de alterar a lógica de renderização.
+- **Fallback 404:** As rotas `/como-fiz` e `/produto/:id` dependem do fallback `public/404.html` para funcionar corretamente em GitHub Pages. O `404.html` redireciona para `/` com um query param indicando a rota desejada.
+- **Caminho do catálogo:** O arquivo está em `public/data/products.json` (não em `public/products.json`). Use `${import.meta.env.BASE_URL}data/products.json` para compatibilidade.
+- **Imagens locais:** Todas as imagens ficam em `public/Imagens/` com caminhos relativos em JSON (ex: `Imagens/ReservaDeCarvalho.webp`). Formato `.webp` otimizado.
+- **Site 100% estático:** Não há backend; toda a lógica é client-side. Isso significa deploy rápido e sem custos.
+- **Edição fácil de produtos:** Basta atualizar `public/data/products.json` sem alterar nenhuma lógica React.
+- **Base URL para subdiretório:** Configurada em `vite.config.ts` para suportar repositório em subpasta (`/Destilare/`).
 
 ## Decisões de arquitetura
 
@@ -181,13 +233,37 @@ A solução adotada prioriza simplicidade e manutenção:
 
 ## Status final
 
-Projeto concluído e em produção no GitHub Pages, com a experiência principal funcionando, catálogo carregando corretamente, navegação correta e design ajustado para mobile.
+✅ **PROJETO CONCLUÍDO E EM PRODUÇÃO**
 
-## Próximos passos opcionais
+- Catálogo dinâmico com 8 produtos funcionando
+- Navegação fluida em 3 rotas (SPA)
+- Busca com normalização português
+- Página de detalhe implementada (bônus)
+- Design responsivo até 320px
+- Lint passando, tipos completos
+- Publicado e ativo em GitHub Pages
 
-Se a equipe quiser evoluir o projeto, sugestões futuras incluem:
+**Requisitos obrigatórios:** 100% atendidos  
+**Bônus implementados:** Página de detalhe, identidade visual premium, página explicativa
 
-- incluir vídeo definitivo na página `/como-fiz`;
-- adicionar filtros abertos por faixa de preço ou categoria;
-- criar uma página de detalhe do produto;
-- evoluir a marca para uma identidade ainda mais premium com seleções de tipografia e imagens de campanha.
+## Próximos passos opcionais (roadmap)
+
+Um plano completo com 3 fases foi documentado em `planejamento/Plano-Implementacao-Funcionalidades.md`:
+
+**FASE 2 (2-3h):** Filtros avançados
+- Dropdown de categorias (extrair valores únicos de `products.json`)
+- Range slider para filtro de preço (mín/máx)
+- Combinar com busca de texto
+- Reset button para limpar todos os filtros
+
+**FASE 3 (1-2h):** Vídeo auto-hospedado em `/como-fiz`
+- Comprimir com FFmpeg (720p, 2Mbps → ~100-150MB)
+- Adicionar `<video>` HTML5 com poster
+- Colocar em `public/videos/destilare-presentation.mp4`
+- Hook `useVideoUrl()` para compatibilidade com `BASE_URL`
+
+**FASE 4 (Manutenção):** Revisão e otimização de imagens
+- Auditar qualidade em `public/Imagens/`
+- Garantir consistência visual com paleta de marca
+
+Todas as fases têm **código e instruções prontas** na documentação.

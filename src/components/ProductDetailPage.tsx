@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 import type { Product } from "../Interfaces/product";
 import ProductDetail from "./ProductDetail";
 
 function ProductDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addItem } = useCart();
   const [catalog, setCatalog] = useState<Product[]>([]);
   const [status, setStatus] = useState<"loading" | "success" | "error">("loading");
 
@@ -65,7 +67,11 @@ function ProductDetailPage() {
 
   return (
     <section className="catalog">
-      <ProductDetail product={product} onBack={() => navigate("/")} />
+      <ProductDetail
+        product={product}
+        onBack={() => navigate("/")}
+        onAddToCart={(selectedProduct) => addItem(selectedProduct)}
+      />
     </section>
   );
 }

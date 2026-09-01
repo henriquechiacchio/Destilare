@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import HowItWasMade from "./components/HowItWasMade";
 import ProductDetailPage from "./components/ProductDetailPage";
 import Storefront from "./components/Storefront";
+import { CartProvider } from "./context/CartContext";
 
 function AppRoutes() {
   const location = useLocation();
@@ -35,11 +36,13 @@ function AppRoutes() {
 
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <div className="app-shell">
-        <AppRoutes />
-      </div>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <div className="app-shell">
+          <AppRoutes />
+        </div>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

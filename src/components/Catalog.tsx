@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import type { CatalogStateProps } from "../Interfaces/catalog";
+import type { CatalogStateProps } from "../Interfaces/catalogState";
 import type { Product } from "../Interfaces/product";
 import type { CatalogStatus } from "../types/catalog";
 import ProductCard from "./ProductCard";

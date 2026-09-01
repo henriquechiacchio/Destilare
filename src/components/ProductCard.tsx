@@ -1,4 +1,4 @@
-import type { ProductCardProps } from "../Interfaces/catalog";
+import type { ProductCardProps } from "../Interfaces/productCard";
 
 const currencyFormatter = new Intl.NumberFormat("pt-BR", {
   style: "currency",

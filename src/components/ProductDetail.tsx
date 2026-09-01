@@ -1,12 +1,19 @@
-import type { ProductDetailProps } from "../Interfaces/catalog";
+import type { ProductDetailProps } from "../Interfaces/productDetail";
 
 const currencyFormatter = new Intl.NumberFormat("pt-BR", {
   style: "currency",
   currency: "BRL",
 });
 
-function ProductDetail({ product, onBack }: ProductDetailProps) {
+function ProductDetail({ product, onBack, onAddToCart }: ProductDetailProps) {
+
   const productImage = `${import.meta.env.BASE_URL}${product.image.replace(/^\/+/, "")}`;
+
+  const handleAddToCart = () => {
+    if (onAddToCart) {
+      onAddToCart(product);
+    }
+  };
 
   return (
     <div className="product-detail">
@@ -44,6 +51,12 @@ function ProductDetail({ product, onBack }: ProductDetailProps) {
           <ul className="product-card__notes" aria-label="Notas de degustação">
             {product.tastingNotes.map((note) => <li key={note}>{note}</li>)}
           </ul>
+
+          <div className="product-detail__actions">
+            <button type="button" className="product-detail__cta" onClick={handleAddToCart}>
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
       </div>
     </div>
