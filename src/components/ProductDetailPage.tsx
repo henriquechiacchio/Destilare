@@ -28,23 +28,23 @@ function ProductDetailPage() {
   const [status, setStatus] = useState<"loading" | "success" | "error">("loading");
 
   useEffect(() => {
-    let isMounted = true;
+    const controller = new AbortController();
 
     async function loadCatalog() {
       setStatus("loading");
 
       try {
-        const response = await fetch(`${import.meta.env.BASE_URL}data/products.json`);
+        const response = await fetch(`${import.meta.env.BASE_URL}data/products.json`, { signal: controller.signal });
         if (!response.ok) throw new Error("Falha ao carregar o catálogo");
 
         const products: Product[] = await response.json();
 
-        if (isMounted) {
+        if (!controller.signal.aborted) {
           setCatalog(products);
           setStatus("success");
         }
       } catch {
-        if (isMounted) {
+        if (!controller.signal.aborted) {
           setStatus("error");
         }
       }
@@ -52,9 +52,7 @@ function ProductDetailPage() {
 
     void loadCatalog();
 
-    return () => {
-      isMounted = false;
-    };
+    return () => controller.abort();
   }, []);
 
   const product = useMemo(

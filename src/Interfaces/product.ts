@@ -18,7 +18,7 @@ export interface Product {
   name: string;
   category: string;
   description: string;
-  detailedDescription?: string;
+  detailedDescription: string;
   price: number;
   image: string;
   ageStatement: string;

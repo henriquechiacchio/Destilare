@@ -63,7 +63,7 @@ function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   key={item.id}
                   item={item}
                   onIncrease={(productId) => updateQuantity(productId, (currentQuantity) => currentQuantity + 1)}
-                  onDecrease={(productId) => updateQuantity(productId, (currentQuantity) => Math.max(0, currentQuantity - 1))}
+                  onDecrease={(productId) => updateQuantity(productId, (currentQuantity) => currentQuantity - 1)}
                   onRemove={removeItem}
                   onCloseCart={onClose}
                 />

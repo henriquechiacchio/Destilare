@@ -112,7 +112,7 @@ function Catalog() {
         product.name,
         product.category,
         product.description,
-        product.detailedDescription ?? "",
+        product.detailedDescription,
       ];
 
       return searchableTerms.some((value) => normalize(value).includes(normalizedSearch));
