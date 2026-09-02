@@ -24,10 +24,23 @@ function HowItWasMade() {
       <h1 id="how-title">Como fiz</h1>
 
       <p className="how-it-was-made__intro">
-        A Destilare nasceu como uma vitrine editorial de whiskys, mas foi evoluindo para uma loja mais completa,
-        com catálogo dinâmico, páginas de detalhe, busca e carrinho persistente. A ideia foi unir narrativa de marca,
-        organização de código e experiência de compra fluida, sem depender de backend.
+        A Destilare é uma loja de whiskys, com catálogo dinâmico, páginas de detalhe (PDP), busca e carrinho persistente. 
+        A ideia foi unir narrativa de marca, organização de código sem depender de backend.
       </p>
+
+      <section className="how-it-was-made__section">
+        <h2>Stack tecnológico</h2>
+        <ul>
+          <li><strong>React 19</strong> como base da interface.</li>
+          <li><strong>TypeScript</strong> para tipagem, segurança e manutenção do código.</li>
+          <li><strong>Vite</strong> para ambiente de desenvolvimento e build rápido.</li>
+          <li><strong>React Router DOM</strong> para navegação entre as páginas da SPA.</li>
+          <li><strong>CSS nativo</strong> para estilos, layout e responsividade.</li>
+          <li><strong>GitHub Pages</strong> para publicação do projeto.</li>
+          <li><strong>gh-pages</strong> para deploy automatizado da aplicação.</li>
+          <li><strong>Google Fonts</strong> com <strong>Playfair Display</strong> e <strong>DM Mono</strong> para a identidade visual.</li>
+        </ul>
+      </section>
 
       <div className="video-placeholder" aria-label="Vídeo da apresentação do projeto">
         <video
@@ -79,19 +92,6 @@ function HowItWasMade() {
             a apresentação mais rápida e estável em qualquer ambiente.
           </li>
         </ul>
-      </section>
-
-      <section className="how-it-was-made__section">
-        <h2>Por que essa arquitetura</h2>
-        <p>
-          A decisão de manter o catálogo em JSON se conecta diretamente à ideia da Destilare: uma experiência de loja
-          premium, mas com manutenção simples. A estrutura reduz acoplamento, facilita troca de dados e melhora a leitura
-          do projeto para qualquer pessoa que abrir o código depois.
-        </p>
-        <p>
-          O carrinho segue a mesma lógica: ele fica fora da UI, em um contexto global, permitindo que qualquer componente
-          da aplicação acesse o estado sem espalhar props em vários níveis. Isso deixa o app mais previsível e fácil de evoluir.
-        </p>
       </section>
 
       <section className="how-it-was-made__section">
